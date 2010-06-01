@@ -1,0 +1,33 @@
+{
+    "name": "qunit-tap",
+    "description": "A TAP Output Producer Plugin for QUnit",
+    "version": "0.9",
+    "maintainers": [
+        {
+            "name": "Takuto Wada",
+            "email": "takuto.wada@gmail.com",
+            "url": "http://github.com/twada"
+        }
+    ],
+    "licenses": [
+        {
+            "name": "MIT",
+            "url": "http://www.opensource.org/licenses/mit-license.php"
+        },
+        {
+            "type": "GPL",
+            "url": "http://www.opensource.org/licenses/gpl-2.0.php",
+        }
+    ],
+    "bugs": {
+        "web" : "http://github.com/twada/qunit-tap/issues"
+    },
+    "keywords": ["test", "testing", "javascript", "qunit", "TAP"],
+    "repositories": [
+        {
+            "type": "git", 
+            "url": "http://github.com/twada/qunit-tap.git",
+            "path": "lib"
+        }
+    ]
+}
