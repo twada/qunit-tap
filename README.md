@@ -6,12 +6,13 @@ DESCRIPTION
 ---------------------------------------
 QUnit-TAP is a plugin for [QUnit](http://docs.jquery.com/QUnit) to produce [TAP](http://testanything.org/) output.
 
-With QUnit-TAP you can use TAP Consumers like [prove](http://search.cpan.org/perldoc?prove) for test automation. QUnit-TAP runs under command-line js environment (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)) and [CommonJS](http://commonjs.org/) environment (like [node.js](http://nodejs.org/)).
+With QUnit-TAP you can use TAP Consumers like [prove](http://search.cpan.org/perldoc?prove) for test automation. QUnit-TAP runs under command-line js environment (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)) and [CommonJS](http://commonjs.org/) environment (like [node.js](http://nodejs.org/) or [narwhal](http://narwhaljs.org/)).
 
 
 DOWNLOAD
 ---------------------------------------
-Download qunit-tap from http://github.com/twada/qunit-tap/downloads
+* Download from [qunit-tap archive](http://github.com/twada/qunit-tap/downloads)
+* or `git clone git://github.com/twada/qunit-tap.git`
 
 
 USAGE
@@ -68,6 +69,14 @@ for details, see sample/commonjs/
     $ prove --exec=/usr/local/bin/node test/*.js
 
 for details, see see sample/interop/
+
+
+TESTED ENVIRONMENTS
+---------------------------------------
+* [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey)
+* [Rhino](https://developer.mozilla.org/en/Rhino)
+* [node.js](http://nodejs.org/)
+* [narwhal](http://narwhaljs.org/)
 
 
 AUTHOR
