@@ -1,12 +1,18 @@
 {
     "name": "qunit-tap",
     "description": "A TAP Output Producer Plugin for QUnit",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "maintainers": [
         {
             "name": "Takuto Wada",
             "email": "takuto.wada@gmail.com",
             "url": "http://github.com/twada"
+        }
+    ],
+    "contributors": [
+        {
+            "name": "Nikita Vasilyev",
+            "web": "http://elv1s.ru/"
         }
     ],
     "licenses": [
