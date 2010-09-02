@@ -9,6 +9,13 @@
   <link rel="stylesheet" href="../../vendor/qunit/qunit/qunit.css" type="text/css" media="screen">
   <script type="text/javascript" src="../../vendor/qunit/qunit/qunit.js"></script>
 
+  <script type="text/javascript" src="../../lib/qunit-tap.js"></script>
+  <script>
+    if(typeof(console) !== "undefined" && typeof(console.log) === "function") {
+      QUnit.tap.puts = console.log;
+    }
+  </script>
+
   <script type="text/javascript" src="./test/math_test.js"></script>
   <script type="text/javascript" src="./test/incr_test.js"></script>
 </head>
