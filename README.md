@@ -13,6 +13,7 @@ DOWNLOAD
 ---------------------------------------
 * Download from [qunit-tap archive](http://github.com/twada/qunit-tap/downloads)
 * or `git clone git://github.com/twada/qunit-tap.git`
+* or `npm install qunit-tap` if you use npm.
 
 
 USAGE
@@ -23,6 +24,7 @@ You can use QUnit-TAP,
 
 * as a single file, copy lib/qunit-tap.js to anywhere you like.
 * as git submodule.
+* as a node.js package (via npm).
 * as a zipped CommonJS package (not tested yet).
 
 
