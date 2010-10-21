@@ -26,7 +26,7 @@ end
 describe 'TAP Output' do
 
   js_expected = <<-EOS
-1..13
+1..16
 # module: math module
 # test: add
 ok 1 - undefined, expected: 5
@@ -44,6 +44,23 @@ not ok 11 - with message
 # test: increment
 ok 12 - undefined, expected: 2
 ok 13 - undefined, expected: -2
+# module: TAP spec compliance
+# test: Diagnostic lines
+ok 14 - with\r
+# multiline
+# message
+not ok 15 - with\r
+# multiline
+# message, expected: "foo\r
+# bar" result: "foo
+# bar", diff:  "foo
+#  bar" 
+not ok 16 - with\r
+# multiline
+# message, expected: "foo
+# bar" result: "foo\r
+# bar", diff:  "foo\r
+#  bar" 
 EOS
 
   JS_TESTS.product(JS_EXECUTABLES).each do |test, command|
@@ -84,6 +101,27 @@ ok 1 - undefined, expected: 2
 ok 2 - undefined, expected: -2
 EOS
 
+  commonjs_tap_compliance_expected = <<-EOS
+1..3
+# module: TAP spec compliance
+# test: Diagnostic lines
+ok 1 - with\r
+# multiline
+# message
+not ok 2 - with\r
+# multiline
+# message, expected: "foo\r
+# bar" result: "foo
+# bar", diff:  "foo
+#  bar" 
+not ok 3 - with\r
+# multiline
+# message, expected: "foo
+# bar" result: "foo\r
+# bar", diff:  "foo\r
+#  bar" 
+EOS
+
 
   COMMON_JS_TESTS.product(COMMON_JS_EXECUTABLES).each do |test, command|
     context "#{test} test on #{command}" do
@@ -104,6 +142,15 @@ EOS
         end
         subject { @output }
         it { should == commonjs_incr_expected }
+      end
+      context "TAP spec compliance" do
+        before do
+          on_dir(test) do
+            @output = `#{command} test/tap_compliance_test.js`
+          end
+        end
+        subject { @output }
+        it { should == commonjs_tap_compliance_expected }
       end
     end
   end
