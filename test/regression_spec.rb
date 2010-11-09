@@ -29,21 +29,21 @@ describe 'TAP Output' do
 1..16
 # module: math module
 # test: add
-ok 1 - undefined, expected: 5
-ok 2 - undefined, expected: -1
-ok 3 - passing 3 args, expected: 8
-ok 4 - just one arg, expected: 2
-ok 5 - no args, expected: 0
-not ok 6 - undefined, expected: 7 result: 1, diff: 7 1 
-not ok 7 - with message, expected: 7 result: 1, diff: 7 1 
-ok 8 - undefined
+ok 1
+ok 2
+ok 3 - passing 3 args
+ok 4 - just one arg
+ok 5 - no args
+not ok 6
+not ok 7 - with message
+ok 8
 ok 9 - with message
-not ok 10 - undefined
+not ok 10
 not ok 11 - with message
 # module: incr module
 # test: increment
-ok 12 - undefined, expected: 2
-ok 13 - undefined, expected: -2
+ok 12
+ok 13
 # module: TAP spec compliance
 # test: Diagnostic lines
 ok 14 - with\r
@@ -51,16 +51,10 @@ ok 14 - with\r
 # message
 not ok 15 - with\r
 # multiline
-# message, expected: "foo\r
-# bar" result: "foo
-# bar", diff:  "foo
-#  bar" 
+# message
 not ok 16 - with\r
 # multiline
-# message, expected: "foo
-# bar" result: "foo\r
-# bar", diff:  "foo\r
-#  bar" 
+# message
 EOS
 
   JS_TESTS.product(JS_EXECUTABLES).each do |test, command|
@@ -80,16 +74,16 @@ EOS
 1..11
 # module: math module
 # test: add
-ok 1 - undefined, expected: 5
-ok 2 - undefined, expected: -1
-ok 3 - passing 3 args, expected: 8
-ok 4 - just one arg, expected: 2
-ok 5 - no args, expected: 0
-not ok 6 - undefined, expected: 7 result: 1, diff: 7 1 
-not ok 7 - with message, expected: 7 result: 1, diff: 7 1 
-ok 8 - undefined
+ok 1
+ok 2
+ok 3 - passing 3 args
+ok 4 - just one arg
+ok 5 - no args
+not ok 6
+not ok 7 - with message
+ok 8
 ok 9 - with message
-not ok 10 - undefined
+not ok 10
 not ok 11 - with message
 EOS
 
@@ -97,8 +91,8 @@ EOS
 1..2
 # module: incr module
 # test: increment
-ok 1 - undefined, expected: 2
-ok 2 - undefined, expected: -2
+ok 1
+ok 2
 EOS
 
   commonjs_tap_compliance_expected = <<-EOS
@@ -110,16 +104,10 @@ ok 1 - with\r
 # message
 not ok 2 - with\r
 # multiline
-# message, expected: "foo\r
-# bar" result: "foo
-# bar", diff:  "foo
-#  bar" 
+# message
 not ok 3 - with\r
 # multiline
-# message, expected: "foo
-# bar" result: "foo\r
-# bar", diff:  "foo\r
-#  bar" 
+# message
 EOS
 
 
