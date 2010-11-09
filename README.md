@@ -4,14 +4,17 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 
 DESCRIPTION
 ---------------------------------------
-QUnit-TAP is a plugin for [QUnit](http://docs.jquery.com/QUnit) to produce [TAP](http://testanything.org/) output.
+QUnit-TAP is a simple plugin for [QUnit](http://docs.jquery.com/QUnit) to produce [TAP](http://testanything.org/) output, to run tests on command-line.
 
-With QUnit-TAP you can use TAP Consumers like [prove](http://search.cpan.org/perldoc?prove) for test automation. QUnit-TAP runs under command-line js environment (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)) and [CommonJS](http://commonjs.org/) environment (like [node.js](http://nodejs.org/) or [narwhal](http://narwhaljs.org/)).
+With QUnit-TAP you can test your QUnit test scripts on CUI, and you can use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation.
+
+QUnit-TAP runs under command-line js environment (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)) and [CommonJS](http://commonjs.org/) environment (like [node.js](http://nodejs.org/) or [narwhal](http://narwhaljs.org/)).
 
 
 DOWNLOAD
 ---------------------------------------
-* Download from [qunit-tap archive](http://github.com/twada/qunit-tap/downloads)
+* Just download [qunit-tap.js](http://github.com/twada/qunit-tap/raw/master/lib/qunit-tap.js)
+* or download archive from [qunit-tap archives](http://github.com/twada/qunit-tap/downloads)
 * or `git clone git://github.com/twada/qunit-tap.git`
 * or `npm install qunit-tap` if you use npm.
 
@@ -28,7 +31,7 @@ You can use QUnit-TAP,
 * as a zipped CommonJS package (not tested yet).
 
 
-SAMPLES
+RUNNING SAMPLES
 ---------------------------------------
 ### prepare
     $ git clone git://github.com/twada/qunit-tap.git
@@ -42,7 +45,7 @@ SAMPLES
     $ cd sample/js/
     $ rhino run_tests.js
 
-for details, see sample/js/
+for details, see [sample/js/](http://github.com/twada/qunit-tap/tree/master/sample/js/)
 
 
 ### under CommonJS environment
@@ -55,7 +58,7 @@ for details, see sample/js/
     # with prove
     $ prove --exec=/usr/local/bin/node test/*.js
 
-for details, see sample/commonjs/
+for details, see [sample/commonjs/](http://github.com/twada/qunit-tap/tree/master/sample/commonjs/)
 
 
 ### to use both under standard js and CommonJS environments
@@ -70,7 +73,7 @@ for details, see sample/commonjs/
     $ prove --exec=/usr/bin/rhino run_tests.js
     $ prove --exec=/usr/local/bin/node test/*.js
 
-for details, see see sample/interop/
+for details, see [sample/interop/](http://github.com/twada/qunit-tap/tree/master/sample/interop/)
 
 
 TESTED ENVIRONMENTS
@@ -88,4 +91,4 @@ Takuto Wada (takuto.wada at gmail dot com)
 
 LICENSE
 ---------------------------------------
-Dual licensed under the MIT and GPL licenses.
+Dual licensed under the MIT and GPLv2 licenses.
