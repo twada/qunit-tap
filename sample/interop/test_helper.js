@@ -19,6 +19,7 @@ QUnit.init();
 QUnit.config.blocking = false;
 QUnit.config.autorun = true;
 QUnit.config.updateRate = 0;
+QUnit.tap.showDetailsOnFailure = true;
 
 var sys = tryRequireThese("sys", "system");
 for (var i in sys) exports[i] = sys[i];
