@@ -31,6 +31,43 @@ You can use QUnit-TAP,
 * as a zipped CommonJS package (not tested yet).
 
 
+SAMPLE OUTPUT
+---------------------------------------
+    1..16
+    # module: math module
+    # test: add
+    ok 1
+    ok 2
+    ok 3 - passing 3 args
+    ok 4 - just one arg
+    ok 5 - no args
+    not ok 6 - expected: 7 result: 1
+    not ok 7 - with message, expected: 7 result: 1
+    ok 8
+    ok 9 - with message
+    not ok 10
+    not ok 11 - with message
+    # module: incr module
+    # test: increment
+    ok 12
+    ok 13
+    # module: TAP spec compliance
+    # test: Diagnostic lines
+    ok 14 - with\r
+    # multiline
+    # message
+    not ok 15 - with\r
+    # multiline
+    # message, expected: foo\r
+    # bar result: foo
+    # bar
+    not ok 16 - with\r
+    # multiline
+    # message, expected: foo
+    # bar result: foo\r
+    # bar
+
+
 RUNNING SAMPLES
 ---------------------------------------
 ### prepare
