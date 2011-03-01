@@ -8,7 +8,7 @@ QUnit-TAP is a simple plugin for [QUnit](http://docs.jquery.com/QUnit) to produc
 
 With QUnit-TAP you can test your QUnit test scripts on CUI, and you can use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation.
 
-QUnit-TAP runs under command-line js environment (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)) and [CommonJS](http://commonjs.org/) environment (like [node.js](http://nodejs.org/) or [narwhal](http://narwhaljs.org/)).
+QUnit-TAP runs under headless browsers like [phantomjs](http://code.google.com/p/phantomjs/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments (like [node.js](http://nodejs.org/) or [narwhal](http://narwhaljs.org/)), and of cource, runs under real browser too.
 
 
 DOWNLOAD
@@ -115,6 +115,7 @@ for details, see [sample/interop/](http://github.com/twada/qunit-tap/tree/master
 
 TESTED ENVIRONMENTS
 ---------------------------------------
+* [phantomjs](http://code.google.com/p/phantomjs/)
 * [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey)
 * [Rhino](https://developer.mozilla.org/en/Rhino)
 * [node.js](http://nodejs.org/)
