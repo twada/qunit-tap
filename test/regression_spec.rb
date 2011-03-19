@@ -73,6 +73,17 @@ EOS
     end
   end
 
+  JS_TESTS.product(["./phantomjs_test.sh"]).each do |test, command|
+    context "#{test} test on #{command}" do
+      before do
+        on_dir(test) do
+          @output = `#{command}`
+        end
+      end
+      subject { @output }
+      it { should == js_expected }
+    end
+  end
 
   commonjs_math_expected = <<-EOS
 1..11
