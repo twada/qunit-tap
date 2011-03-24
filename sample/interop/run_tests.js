@@ -5,6 +5,8 @@ load("./lib/incr.js");
 load("../../vendor/qunit/qunit/qunit.js");
 load("../../lib/qunit-tap.js");
 
+qunit_tap(QUnit, print);
+
 QUnit.init();
 QUnit.config.blocking = false;
 QUnit.config.autorun = true;
