@@ -39,11 +39,14 @@ Two steps are required to use QUnit-TAP.
 ### usage example 1 : QUnit-TAP initialization under SpiderMonkey
     load("path/to/qunit.js");
     load("path/to/qunit-tap.js");
-    qunitTap(QUnit, print);
-    // or customize default behavior
-    // qunitTap(QUnit, puts, {showDetailsOnFailure: false});
 
-### usage example 2 : QUnit-TAP initialization under HTML
+    // enable TAP output
+    qunitTap(QUnit, print);  //NOTE: 'print' is SpiderMonkey's built-in function
+
+    // or customize default behavior
+    // qunitTap(QUnit, print, {showDetailsOnFailure: false});
+
+### usage example 2 : QUnit-TAP initialization under HTML (e.g. for PhantomJS)
     <script type="text/javascript" src="path/to/qunit.js"></script>
     <script type="text/javascript" src="path/to/qunit-tap.js"></script>
     <script>
@@ -51,7 +54,7 @@ Two steps are required to use QUnit-TAP.
     </script>
 
 
-SAMPLE OUTPUT
+TAP OUTPUT EXAMPLE
 ---------------------------------------
     1..16
     # module: math module
@@ -131,6 +134,19 @@ for details, see [sample/commonjs/](http://github.com/twada/qunit-tap/tree/maste
     $ prove --exec=/usr/local/bin/node test/*.js
 
 for details, see [sample/interop/](http://github.com/twada/qunit-tap/tree/master/sample/interop/)
+
+
+### to run with PhantomJS
+
+    # assume you have built and installed phantomjs
+    $ cd sample/js/
+    $ ./phantomjs_test.sh
+
+    # with prove
+    $ prove phantomjs_test.sh
+
+for details, see [phantomjs_test.sh](http://github.com/twada/qunit-tap/tree/master/sample/js/phantomjs_test.sh)
+
 
 
 TESTED ENVIRONMENTS
