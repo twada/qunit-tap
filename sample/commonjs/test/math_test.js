@@ -1,8 +1,6 @@
 require("../test_helper");
 math = require("../lib/math");
 
-puts("1..11");
-
 QUnit.module("math module");
 
 QUnit.test('add' , function() {
@@ -21,3 +19,5 @@ QUnit.test('add' , function() {
                assert.ok(false);
                assert.ok(false, 'with message');
            });
+
+puts("1..11");

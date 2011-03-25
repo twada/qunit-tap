@@ -26,7 +26,6 @@ end
 describe 'TAP Output' do
 
   js_expected = <<-EOS
-1..16
 # module: math module
 # test: add
 ok 1
@@ -59,6 +58,7 @@ not ok 16 - with\r
 # message, expected: foo
 # bar result: foo\r
 # bar
+1..16
 EOS
 
   JS_TESTS.product(JS_EXECUTABLES).each do |test, command|
@@ -86,7 +86,6 @@ EOS
   end
 
   commonjs_math_expected = <<-EOS
-1..11
 # module: math module
 # test: add
 ok 1
@@ -100,18 +99,18 @@ ok 8
 ok 9 - with message
 not ok 10
 not ok 11 - with message
+1..11
 EOS
 
   commonjs_incr_expected = <<-EOS
-1..2
 # module: incr module
 # test: increment
 ok 1
 ok 2
+1..2
 EOS
 
   commonjs_tap_compliance_expected = <<-EOS
-1..3
 # module: TAP spec compliance
 # test: Diagnostic lines
 ok 1 - with\r
@@ -127,6 +126,7 @@ not ok 3 - with\r
 # message, expected: foo
 # bar result: foo\r
 # bar
+1..3
 EOS
 
 

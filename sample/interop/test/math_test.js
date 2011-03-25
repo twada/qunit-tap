@@ -3,7 +3,6 @@ if ( typeof exports !== "undefined" || typeof require !== "undefined" ) {
     xx = require("../lib/math");
     equals = assert.equal;
     ok = assert.ok;
-    puts("1..11");
 }
 
 QUnit.module("math module");
@@ -24,3 +23,7 @@ QUnit.test('add' , function() {
          ok(false);
          ok(false, 'with message');
      });
+
+if ( typeof exports !== "undefined" || typeof require !== "undefined" ) {
+    puts("1..11");
+}
