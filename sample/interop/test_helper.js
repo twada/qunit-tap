@@ -25,6 +25,5 @@ QUnit.init();
 QUnit.config.blocking = false;
 QUnit.config.autorun = true;
 QUnit.config.updateRate = 0;
-QUnit.tap.showDetailsOnFailure = true;
 
 exports.assert = QUnit;
