@@ -13,13 +13,13 @@ var tryRequireThese = function() {
 };
 
 QUnit = require("../../vendor/qunit/qunit/qunit").QUnit;
-var qunit_tap = require("../../lib/qunit-tap").qunit_tap;
+var qunitTap = require("../../lib/qunit-tap").qunitTap;
 
 var sys = tryRequireThese("sys", "system");
 for (var i in sys) exports[i] = sys[i];
 puts = (typeof sys.puts === 'function') ? sys.puts : sys.print;
 
-qunit_tap(QUnit, puts);
+qunitTap(QUnit, puts);
 
 QUnit.init();
 QUnit.config.blocking = false;

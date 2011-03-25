@@ -31,20 +31,20 @@ USAGE
 Two steps are required to use QUnit-TAP.
 
 1. load/require qunit-tap.js
-2. Call qunit_tap function with three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
+2. Call qunitTap function with three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
 
 ### usage example 1 : QUnit-TAP initialization under SpiderMonkey
     load("path/to/qunit.js");
     load("path/to/qunit-tap.js");
-    qunit_tap(QUnit, print);
+    qunitTap(QUnit, print);
     // or customize default behavior
-    // qunit_tap(QUnit, puts, {showDetailsOnFailure: false});
+    // qunitTap(QUnit, puts, {showDetailsOnFailure: false});
 
 ### usage example 2 : QUnit-TAP initialization under HTML
     <script type="text/javascript" src="path/to/qunit.js"></script>
     <script type="text/javascript" src="path/to/qunit-tap.js"></script>
     <script>
-      qunit_tap(QUnit, function() { console.log.apply(console, arguments); });
+      qunitTap(QUnit, function() { console.log.apply(console, arguments); });
     </script>
 
 
