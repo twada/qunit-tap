@@ -34,7 +34,7 @@ USAGE
 Two steps are required to use QUnit-TAP.
 
 1. load/require qunit-tap.js
-2. Call qunitTap function with two or three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
+2. Call `qunitTap` function with two or three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
 
 ### usage example 1 : QUnit-TAP initialization under SpiderMonkey
     load("path/to/qunit.js");
@@ -44,7 +44,7 @@ Two steps are required to use QUnit-TAP.
     qunitTap(QUnit, print);  //NOTE: 'print' is SpiderMonkey's built-in function
 
     // or customize default behavior
-    // qunitTap(QUnit, print, {showDetailsOnFailure: false});
+    // qunitTap(QUnit, print, {noPlan: true, showDetailsOnFailure: false});
 
 ### usage example 2 : QUnit-TAP initialization under HTML (e.g. for PhantomJS)
     <script type="text/javascript" src="path/to/qunit.js"></script>
@@ -52,6 +52,13 @@ Two steps are required to use QUnit-TAP.
     <script>
       qunitTap(QUnit, function() { console.log.apply(console, arguments); });
     </script>
+
+
+CONFIGURATION OPTIONS
+---------------------------------------
+`qunitTap` function takes third optional argument as options object to customize default behavior. Customization props are,
+- noPlan : If true, print test plan line at the bottom after all the test points have run. Inspired by Perl's "no_plan" feature. Default is false.
+- showDetailsOnFailure : If true, show 'expected' and 'actual' on failure output. Default is true.
 
 
 TAP OUTPUT EXAMPLE
@@ -91,7 +98,7 @@ TAP OUTPUT EXAMPLE
     # bar
 
 
-RUNNING SAMPLES
+RUNNING EXAMPLES
 ---------------------------------------
 ### prepare
     $ git clone git://github.com/twada/qunit-tap.git
