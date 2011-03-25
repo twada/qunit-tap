@@ -8,4 +8,4 @@ QUnit.test('Diagnostic lines' , function() {
                assert.equal("foo\r\nbar", "foo\nbar", "with\r\nmultiline\nmessage");
            });
 
-puts("1..3");
+QUnit.start();

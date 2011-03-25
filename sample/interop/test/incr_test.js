@@ -13,5 +13,5 @@ QUnit.test('increment' , function() {
      });
 
 if ( typeof exports !== "undefined" || typeof require !== "undefined" ) {
-    puts("1..2");
+    QUnit.start();
 }

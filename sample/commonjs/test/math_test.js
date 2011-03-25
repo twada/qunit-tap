@@ -20,4 +20,4 @@ QUnit.test('add' , function() {
                assert.ok(false, 'with message');
            });
 
-puts("1..11");
+QUnit.start();

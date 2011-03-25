@@ -25,5 +25,5 @@ QUnit.test('add' , function() {
      });
 
 if ( typeof exports !== "undefined" || typeof require !== "undefined" ) {
-    puts("1..11");
+    QUnit.start();
 }

@@ -13,5 +13,5 @@ QUnit.test('Diagnostic lines' , function() {
            });
 
 if ( typeof exports !== "undefined" || typeof require !== "undefined" ) {
-    puts("1..3");
+    QUnit.start();
 }
