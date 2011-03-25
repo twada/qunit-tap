@@ -2,6 +2,9 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 ================================
 
 
+*NEWS (2011/03/25)* Usage has changed. Please see USAGE section.
+
+
 DESCRIPTION
 ---------------------------------------
 QUnit-TAP is a simple plugin for [QUnit](http://docs.jquery.com/QUnit) to produce [TAP](http://testanything.org/) output, to run tests on command-line.
@@ -31,7 +34,7 @@ USAGE
 Two steps are required to use QUnit-TAP.
 
 1. load/require qunit-tap.js
-2. Call qunitTap function with three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
+2. Call qunitTap function with two or three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
 
 ### usage example 1 : QUnit-TAP initialization under SpiderMonkey
     load("path/to/qunit.js");
