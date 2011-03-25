@@ -18,17 +18,34 @@ DOWNLOAD
 * or `git clone git://github.com/twada/qunit-tap.git`
 * or `npm install qunit-tap` if you use npm.
 
-
-USAGE
----------------------------------------
-Quite simple. Just load/require qunit-tap.js after loading qunit.js.
-
 You can use QUnit-TAP,
 
 * as a single file, copy lib/qunit-tap.js to anywhere you like.
 * as git submodule.
 * as a node.js package (via npm).
 * as a zipped CommonJS package (not tested yet).
+
+
+USAGE
+---------------------------------------
+Two steps are required to use QUnit-TAP.
+
+1. load/require qunit-tap.js
+2. Call qunit_tap function with three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
+
+### usage example 1 : QUnit-TAP initialization under SpiderMonkey
+    load("path/to/qunit.js");
+    load("path/to/qunit-tap.js");
+    qunit_tap(QUnit, print);
+    // or customize default behavior
+    // qunit_tap(QUnit, puts, {showDetailsOnFailure: false});
+
+### usage example 2 : QUnit-TAP initialization under HTML
+    <script type="text/javascript" src="path/to/qunit.js"></script>
+    <script type="text/javascript" src="path/to/qunit-tap.js"></script>
+    <script>
+      qunit_tap(QUnit, function() { console.log.apply(console, arguments); });
+    </script>
 
 
 SAMPLE OUTPUT
