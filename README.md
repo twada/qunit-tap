@@ -31,10 +31,11 @@ You can use QUnit-TAP,
 
 USAGE
 ---------------------------------------
-Two steps are required to use QUnit-TAP.
+Three steps are required to use QUnit-TAP.
 
-1. load/require qunit-tap.js
-2. Call `qunitTap` function with two or three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
+1. load/require qunit.js
+2. load/require qunit-tap.js
+3. Call `qunitTap` function with two or three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
 
 ### usage example 1 : QUnit-TAP initialization under SpiderMonkey
     load("path/to/qunit.js");
