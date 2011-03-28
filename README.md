@@ -48,8 +48,13 @@ Three steps are required to use QUnit-TAP.
     // qunitTap(QUnit, print, {noPlan: true, showDetailsOnFailure: false});
 
     // configure QUnit to run under non-browser env.
+    QUnit.init();
     QUnit.config.updateRate = 0;
 
+    load("path/to/your_test.js");
+    load("path/to/your_test2.js");
+
+    QUnit.start();
 
 ### usage example 2 : QUnit-TAP initialization under HTML (e.g. for PhantomJS)
     <script type="text/javascript" src="path/to/qunit.js"></script>
@@ -57,6 +62,8 @@ Three steps are required to use QUnit-TAP.
     <script>
       qunitTap(QUnit, function() { console.log.apply(console, arguments); });
     </script>
+    <script type="text/javascript" src="path/to/your_test.js"></script>
+    <script type="text/javascript" src="path/to/your_test2.js"></script>
 
 
 CONFIGURATION OPTIONS
