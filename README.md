@@ -47,6 +47,11 @@ Three steps are required to use QUnit-TAP.
     // or customize default behavior
     // qunitTap(QUnit, print, {noPlan: true, showDetailsOnFailure: false});
 
+    // configure QUnit to run under non-browser env.
+    QUnit.config.blocking = false;
+    QUnit.config.updateRate = 0;
+
+
 ### usage example 2 : QUnit-TAP initialization under HTML (e.g. for PhantomJS)
     <script type="text/javascript" src="path/to/qunit.js"></script>
     <script type="text/javascript" src="path/to/qunit-tap.js"></script>
