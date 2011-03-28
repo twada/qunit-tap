@@ -22,7 +22,6 @@ puts = (typeof sys.puts === 'function') ? sys.puts : sys.print;
 qunitTap(QUnit, puts, {noPlan: true});
 
 QUnit.init();
-QUnit.config.blocking = false;
 QUnit.config.updateRate = 0;
 
 exports.assert = QUnit;

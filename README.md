@@ -48,7 +48,6 @@ Three steps are required to use QUnit-TAP.
     // qunitTap(QUnit, print, {noPlan: true, showDetailsOnFailure: false});
 
     // configure QUnit to run under non-browser env.
-    QUnit.config.blocking = false;
     QUnit.config.updateRate = 0;
 
 

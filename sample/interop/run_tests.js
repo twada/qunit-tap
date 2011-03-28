@@ -8,7 +8,6 @@ load("../../lib/qunit-tap.js");
 qunitTap(QUnit, print, {noPlan: true});
 
 QUnit.init();
-QUnit.config.blocking = false;
 QUnit.config.updateRate = 0;
 
 load("./test/math_test.js");
