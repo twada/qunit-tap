@@ -21,11 +21,11 @@ function waitFor(testFx, onReady, timeOutMillis) {
             } else {
                 if(!condition) {
                     // If condition still not fulfilled (timeout but condition is 'false')
-                    console.log("'waitFor()' timeout");
+                    console.log("# 'waitFor()' timeout");
                     phantom.exit(1);
                 } else {
                     // Condition fulfilled (timeout and/or condition is 'true')
-                    console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
+                    // console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
                     typeof(onReady) === "string" ? eval(onReady) : onReady(); //< Do what it's supposed to do once the condition is fulfilled
                     clearInterval(interval); //< Stop this interval
                 }
@@ -36,7 +36,7 @@ function waitFor(testFx, onReady, timeOutMillis) {
 
 if (phantom.args.length === 0 || phantom.args.length > 2) {
     console.log('Usage: run-qunit.js URL');
-    phantom.exit();
+    phantom.exit(1);
 }
 
 var page = new WebPage();
@@ -49,7 +49,7 @@ page.onConsoleMessage = function(msg) {
 page.open(phantom.args[0], function(status){
     if (status !== "success") {
         console.log("Unable to access network");
-        phantom.exit();
+        phantom.exit(1);
     } else {
         waitFor(function(){
             return page.evaluate(function(){
@@ -62,7 +62,7 @@ page.open(phantom.args[0], function(status){
         }, function(){
             var failedNum = page.evaluate(function(){
                 var el = document.getElementById('qunit-testresult');
-                console.log(el.innerText);
+                // console.log(el.innerText);
                 try {
                     return el.getElementsByClassName('failed')[0].innerHTML;
                 } catch (e) { }
