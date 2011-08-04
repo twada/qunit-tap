@@ -183,6 +183,12 @@ AUTHOR
 Takuto Wada (takuto.wada at gmail dot com)
 
 
+CONTRIBUTORS
+---------------------------------------
+* Nikita Vasilyev (http://github.com/NV)
+* Hiroki Kondo (http://github.com/kompiro)
+
+
 LICENSE
 ---------------------------------------
 Dual licensed under the MIT and GPLv2 licenses.
