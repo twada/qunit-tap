@@ -9,13 +9,9 @@ JS_TESTS = %w[js interop]
 COMMON_JS_TESTS = %w[commonjs interop]
 
 SAMPLE_DIR = File.expand_path(File.join(File.dirname(__FILE__), '..', 'sample'))
-def on_dir(name)
-  savedir = Dir.pwd
-  begin
-    Dir.chdir(File.join(SAMPLE_DIR, name))
-    yield
-  ensure
-    Dir.chdir(savedir)
+def on_dir(name, &blk)
+  Dir.chdir(File.join(SAMPLE_DIR, name)) do
+    blk.call
   end
 end
 
