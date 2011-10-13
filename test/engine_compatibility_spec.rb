@@ -1,7 +1,4 @@
-#!/usr/bin/env ruby
-
-require 'rubygems'
-require 'spec'
+# -*- coding: utf-8 -*-
 
 # assuming these executables are in PATH.
 # memo: 'spidermonkey' is a symlink to my local spidermonkey build.
@@ -19,7 +16,7 @@ def on_dir(name, &blk)
 end
 
 
-describe 'TAP Output' do
+describe 'Engine Compatibility' do
 
   js_expected = <<-EOS
 # module: math module
