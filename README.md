@@ -7,9 +7,9 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 
 DESCRIPTION
 ---------------------------------------
-QUnit-TAP is a simple plugin for [QUnit](http://docs.jquery.com/QUnit) to produce [TAP](http://testanything.org/) output, to run tests on command-line.
+QUnit-TAP is a simple plugin for [QUnit](http://docs.jquery.com/QUnit) to produce [TAP](http://testanything.org/) output, to run tests on CLI.
 
-With QUnit-TAP you can test your QUnit test scripts on CUI, and you can use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation.
+With QUnit-TAP you can test your QUnit test scripts on your terminal, and you can use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation.
 
 QUnit-TAP runs under headless browsers like [phantomjs](http://code.google.com/p/phantomjs/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments (like [node.js](http://nodejs.org/) or [narwhal](http://narwhaljs.org/)), and of cource, runs under real browser too.
 
@@ -26,23 +26,31 @@ You can use QUnit-TAP,
 * as a single file, copy lib/qunit-tap.js to anywhere you like.
 * as git submodule.
 * as a node.js package (via npm).
-* as a zipped CommonJS package (not tested yet).
 
 
 USAGE
 ---------------------------------------
-Three steps are required to use QUnit-TAP.
+Three steps to use QUnit-TAP.
 
 1. load/require qunit.js
 2. load/require qunit-tap.js
 3. Call `qunitTap` function with two or three arguments. The first argument is QUnit reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
 
-### usage example 1 : QUnit-TAP initialization under SpiderMonkey
+### usage example 1 : embed QUnit-TAP in your HTML (e.g. to run with PhantomJS)
+    <script type="text/javascript" src="path/to/qunit.js"></script>
+    <script type="text/javascript" src="path/to/qunit-tap.js"></script>
+    <script>
+      qunitTap(QUnit, function() { console.log.apply(console, arguments); }, {noPlan: true});
+    </script>
+    <script type="text/javascript" src="path/to/your_test.js"></script>
+    <script type="text/javascript" src="path/to/your_test2.js"></script>
+
+### usage example 2 : use QUnit-TAP with Rhino/SpiderMonkey
     load("path/to/qunit.js");
     load("path/to/qunit-tap.js");
 
     // enable TAP output
-    qunitTap(QUnit, print);  //NOTE: 'print' is SpiderMonkey's built-in function
+    qunitTap(QUnit, print);  //NOTE: 'print' is Rhino/SpiderMonkey's built-in function
 
     // or customize default behavior
     // qunitTap(QUnit, print, {noPlan: true, showDetailsOnFailure: false});
@@ -55,15 +63,6 @@ Three steps are required to use QUnit-TAP.
     load("path/to/your_test2.js");
 
     QUnit.start();
-
-### usage example 2 : QUnit-TAP initialization under HTML (e.g. for PhantomJS)
-    <script type="text/javascript" src="path/to/qunit.js"></script>
-    <script type="text/javascript" src="path/to/qunit-tap.js"></script>
-    <script>
-      qunitTap(QUnit, function() { console.log.apply(console, arguments); });
-    </script>
-    <script type="text/javascript" src="path/to/your_test.js"></script>
-    <script type="text/javascript" src="path/to/your_test2.js"></script>
 
 
 CONFIGURATION OPTIONS
@@ -119,7 +118,19 @@ RUNNING EXAMPLES
     $ git submodule update --init 
 
 
-### standard usage
+### to run with PhantomJS
+
+    # assume you have built and installed phantomjs
+    $ cd sample/js/
+    $ ./phantomjs_test.sh
+
+    # with prove
+    $ prove phantomjs_test.sh
+
+for details, see [phantomjs_test.sh](http://github.com/twada/qunit-tap/tree/master/sample/js/phantomjs_test.sh)
+
+
+### to run with Rhino/SpiderMonkey
 
     # assume you are using rhino
     $ cd sample/js/
@@ -128,7 +139,7 @@ RUNNING EXAMPLES
 for details, see [sample/js/](http://github.com/twada/qunit-tap/tree/master/sample/js/)
 
 
-### under CommonJS environment
+### to run under CommonJS environment
 
     # assume you are using node.js
     $ cd sample/commonjs/
@@ -154,18 +165,6 @@ for details, see [sample/commonjs/](http://github.com/twada/qunit-tap/tree/maste
     $ prove --exec=/usr/local/bin/node test/*.js
 
 for details, see [sample/interop/](http://github.com/twada/qunit-tap/tree/master/sample/interop/)
-
-
-### to run with PhantomJS
-
-    # assume you have built and installed phantomjs
-    $ cd sample/js/
-    $ ./phantomjs_test.sh
-
-    # with prove
-    $ prove phantomjs_test.sh
-
-for details, see [phantomjs_test.sh](http://github.com/twada/qunit-tap/tree/master/sample/js/phantomjs_test.sh)
 
 
 
