@@ -186,6 +186,7 @@ CONTRIBUTORS
 ---------------------------------------
 * Nikita Vasilyev (http://github.com/NV)
 * Hiroki Kondo (http://github.com/kompiro)
+* Keiji Yoshimi (http://github.com/walf443)
 
 
 LICENSE

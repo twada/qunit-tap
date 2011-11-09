@@ -17,6 +17,10 @@
         {
             "name": "Hiroki Kondo",
             "url": "http://github.com/kompiro/"
+        },
+        {
+            "name": "Keiji Yoshimi",
+            "url": "http://github.com/walf443/"
         }
     ],
     "main": "./lib/qunit-tap",
