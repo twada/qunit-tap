@@ -46,6 +46,6 @@
         }
     ],
     "bugs": {
-        "web" : "http://github.com/twada/qunit-tap/issues"
+        "url" : "http://github.com/twada/qunit-tap/issues"
     }
 }
