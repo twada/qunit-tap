@@ -2,6 +2,6 @@ module("incr module");
 
 test('increment' , function() {
          var inc = incr.increment;
-         equals(inc(1), 2);
-         equals(inc(-3), -2);
+         equal(inc(1), 2);
+         equal(inc(-3), -2);
      });
