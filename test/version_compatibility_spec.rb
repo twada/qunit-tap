@@ -10,8 +10,8 @@ ok 2
 ok 3 - passing 3 args
 ok 4 - just one arg
 ok 5 - no args
-not ok 6 - expected: '7' result: '1'
-not ok 7 - with message, expected: '7' result: '1'
+not ok 6 - expected: '7' got: '1'
+not ok 7 - with message, expected: '7' got: '1'
 ok 8
 ok 9 - with message
 not ok 10
@@ -28,12 +28,12 @@ ok 14 - with\r
 not ok 15 - with\r
 # multiline
 # message, expected: 'foo\r
-# bar' result: 'foo
+# bar' got: 'foo
 # bar'
 not ok 16 - with\r
 # multiline
 # message, expected: 'foo
-# bar' result: 'foo\r
+# bar' got: 'foo\r
 # bar'
 1..16
 EOS
