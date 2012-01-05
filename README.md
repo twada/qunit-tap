@@ -2,7 +2,10 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 ================================
 
 
-*NEWS (2011/03/25)* Usage has changed. Please see USAGE section.
+NEWS
+---------------------------------------
+* (2011/03/25) Usage has changed. Please see USAGE section.
+* (2012/01/01, 2012/01/05) Slightly changed 'expected and actual result' format on version 1.0.7 and version 1.0.8 to gain readability and follow testing framework naming convention.
 
 
 DESCRIPTION
@@ -17,7 +20,7 @@ QUnit-TAP runs under headless browsers like [phantomjs](http://code.google.com/p
 DOWNLOAD
 ---------------------------------------
 * Just download [qunit-tap.js](http://github.com/twada/qunit-tap/raw/master/lib/qunit-tap.js)
-* or download archive from [qunit-tap archives](http://github.com/twada/qunit-tap/downloads)
+* or download archives from [qunit-tap tags](https://github.com/twada/qunit-tap/tags)
 * or `git clone git://github.com/twada/qunit-tap.git`
 * or `npm install qunit-tap` if you use npm.
 
@@ -75,7 +78,6 @@ CONFIGURATION OPTIONS
 
 TAP OUTPUT EXAMPLE
 ---------------------------------------
-    1..16
     # module: math module
     # test: add
     ok 1
@@ -83,8 +85,8 @@ TAP OUTPUT EXAMPLE
     ok 3 - passing 3 args
     ok 4 - just one arg
     ok 5 - no args
-    not ok 6 - expected: 7 result: 1
-    not ok 7 - with message, expected: 7 result: 1
+    not ok 6 - expected: '7' got: '1'
+    not ok 7 - with message, expected: '7' got: '1'
     ok 8
     ok 9 - with message
     not ok 10
@@ -100,14 +102,15 @@ TAP OUTPUT EXAMPLE
     # message
     not ok 15 - with\r
     # multiline
-    # message, expected: foo\r
-    # bar result: foo
-    # bar
+    # message, expected: 'foo\r
+    # bar' got: 'foo
+    # bar'
     not ok 16 - with\r
     # multiline
-    # message, expected: foo
-    # bar result: foo\r
-    # bar
+    # message, expected: 'foo
+    # bar' got: 'foo\r
+    # bar'
+    1..16
 
 
 RUNNING EXAMPLES
