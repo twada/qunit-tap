@@ -9,14 +9,13 @@ var tryRequireThese = function() {
             // ignore
         }
     }
-    throw new Error("cannot find moduele: " + args);
+    throw new Error("cannot find module: " + args);
 };
 
 QUnit = require("../../vendor/qunit/qunit/qunit").QUnit;
 var qunitTap = require("../../lib/qunit-tap").qunitTap;
 
-var sys = tryRequireThese("sys", "system");
-for (var i in sys) exports[i] = sys[i];
+var sys = tryRequireThese("util", "sys", "system");
 puts = (typeof sys.puts === 'function') ? sys.puts : sys.print;
 
 qunitTap(QUnit, puts, {noPlan: true});
