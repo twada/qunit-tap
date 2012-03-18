@@ -23,7 +23,3 @@ QUnit.test('add' , function() {
          ok(false);
          ok(false, 'with message');
      });
-
-if ( typeof exports !== "undefined" || typeof require !== "undefined" ) {
-    QUnit.start();
-}

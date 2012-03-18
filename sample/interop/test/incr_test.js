@@ -11,7 +11,3 @@ QUnit.test('increment' , function() {
          equal(inc(1), 2);
          equal(inc(-3), -2);
      });
-
-if ( typeof exports !== "undefined" || typeof require !== "undefined" ) {
-    QUnit.start();
-}

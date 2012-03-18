@@ -11,7 +11,3 @@ QUnit.test('Diagnostic lines' , function() {
                equal("foo\nbar", "foo\r\nbar", "with\r\nmultiline\nmessage");
                equal("foo\r\nbar", "foo\nbar", "with\r\nmultiline\nmessage");
            });
-
-if ( typeof exports !== "undefined" || typeof require !== "undefined" ) {
-    QUnit.start();
-}

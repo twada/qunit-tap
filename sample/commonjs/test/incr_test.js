@@ -8,4 +8,4 @@ QUnit.test('increment' , function() {
                assert.equal(inc(-3), -2);
            });
 
-QUnit.start();
+// QUnit.start();
