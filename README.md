@@ -4,8 +4,9 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 
 NEWS
 ---------------------------------------
-* (2011/03/25) Usage has changed. Please see USAGE section.
+* (2012/03/18) Note for CommonJS users (includes Node.js users): QUnit's module export path has changed since QUnit 1.3.0, so you should fix 'require' path to get QUnit Object from 'require' module. (for details, see my fix: twada/qunit-tap@4799002)
 * (2012/01/01, 2012/01/05) Slightly changed 'expected and actual result' format on version 1.0.7 and version 1.0.8 to gain readability and follow testing framework naming convention.
+* (2011/03/25) Usage has changed. Please see USAGE section.
 
 
 DESCRIPTION
@@ -66,6 +67,14 @@ Three steps to use QUnit-TAP.
     load("path/to/your_test2.js");
 
     QUnit.start();
+
+### usage example 3 : use QUnit-TAP with Node.js
+    var util = require("util"),
+        QUnit = require('./path/to/qunit'),
+        qunitTap = require('qunit-tap').qunitTap;
+    qunitTap(QUnit, util.puts, { noPlan: true });
+    QUnit.init();
+    QUnit.config.updateRate = 0;
 
 
 CONFIGURATION OPTIONS
@@ -142,7 +151,7 @@ for details, see [phantomjs_test.sh](http://github.com/twada/qunit-tap/tree/mast
 for details, see [sample/js/](http://github.com/twada/qunit-tap/tree/master/sample/js/)
 
 
-### to run under CommonJS environment
+### to run under CommonJS environment (includes Node.js)
 
     # assume you are using node.js
     $ cd sample/commonjs/
