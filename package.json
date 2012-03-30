@@ -21,6 +21,10 @@
         {
             "name": "Keiji Yoshimi",
             "url": "http://github.com/walf443/"
+        },
+        {
+            "name": "Hiroki Honda",
+            "url": "http://github.com/Cside/"
         }
     ],
     "main": "./lib/qunit-tap",
