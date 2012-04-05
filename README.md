@@ -188,7 +188,7 @@ If you are using Node.js (or any CommonJS env) and have an error like this,
     node.js:201
             throw e; // process.nextTick error, or 'error' event on first tick
                   ^
-    Error: should pass QUnit object reference
+    Error: should pass QUnit object reference. Please check QUnit's "require" path if you are using Node.js (or any CommonJS env).
         at qunitTap (/path/to/qunit-tap.js:22:15)
         at Object.<anonymous> (/path/to/using_qunit_via_require_module.js)
         ....
