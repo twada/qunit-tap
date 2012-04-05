@@ -223,10 +223,10 @@ Takuto Wada (takuto.wada at gmail dot com)
 
 CONTRIBUTORS
 ---------------------------------------
-* Nikita Vasilyev (http://github.com/NV)
-* Hiroki Kondo (http://github.com/kompiro)
-* Keiji Yoshimi (http://github.com/walf443)
-* Hiroki Honda (http://github.com/Cside)
+* [Nikita Vasilyev](http://github.com/NV)
+* [Hiroki Kondo](http://github.com/kompiro)
+* [Keiji Yoshimi](http://github.com/walf443)
+* [Hiroki Honda](http://github.com/Cside)
 
 
 LICENSE
