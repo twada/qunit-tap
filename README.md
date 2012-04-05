@@ -4,7 +4,7 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 
 NEWS
 ---------------------------------------
-* (2012/03/18) Note for CommonJS users (includes Node.js users): QUnit's module export path has changed since QUnit 1.3.0, so you should fix 'require' path to get QUnit Object from 'require' module. (for details, see my fix: twada/qunit-tap@4799002)
+* (2012/03/18) Note for CommonJS users (includes Node.js users): QUnit's module export path has changed since QUnit 1.3.0, so you should fix 'require' path to get QUnit Object from 'require' module. (for details, see [my fix](https://github.com/twada/qunit-tap/commit/4799002ae1b9d8a1721da448b98f3dd0d89159d6).)
 * (2012/01/01, 2012/01/05) Slightly changed 'expected and actual result' format on version 1.0.7 and version 1.0.8 to gain readability and follow testing framework naming convention.
 * (2011/03/25) Usage has changed. Please see USAGE section.
 
@@ -178,6 +178,33 @@ for details, see [sample/commonjs/](http://github.com/twada/qunit-tap/tree/maste
 
 for details, see [sample/interop/](http://github.com/twada/qunit-tap/tree/master/sample/interop/)
 
+
+TROUBLE SHOOTING
+---------------------------------------
+If you are using Node.js (or any CommonJS env) and have an error like this,
+
+    $ node test/incr_test.js 
+    
+    node.js:201
+            throw e; // process.nextTick error, or 'error' event on first tick
+                  ^
+    Error: should pass QUnit object reference
+        at qunitTap (/path/to/qunit-tap.js:22:15)
+        at Object.<anonymous> (/path/to/using_qunit_via_require_module.js)
+        ....
+    $
+
+Check QUnit's version you are using. QUnit's module export path has changed since QUnit 1.3.0, so you should fix 'require' path to get QUnit Object from 'require' module. 
+
+      var util = require("util"),
+    -     QUnit = require('./path/to/qunit').QUnit,
+    +     QUnit = require('./path/to/qunit'),
+          qunitTap = require('qunit-tap').qunitTap;
+      qunitTap(QUnit, util.puts, { noPlan: true });
+      QUnit.init();
+      QUnit.config.updateRate = 0;
+
+for details, see [my fix](https://github.com/twada/qunit-tap/commit/4799002ae1b9d8a1721da448b98f3dd0d89159d6).
 
 
 TESTED ENVIRONMENTS
