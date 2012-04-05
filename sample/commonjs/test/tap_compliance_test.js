@@ -7,5 +7,3 @@ QUnit.test('Diagnostic lines' , function() {
                assert.equal("foo\nbar", "foo\r\nbar", "with\r\nmultiline\nmessage");
                assert.equal("foo\r\nbar", "foo\nbar", "with\r\nmultiline\nmessage");
            });
-
-QUnit.start();

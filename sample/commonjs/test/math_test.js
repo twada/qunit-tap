@@ -19,5 +19,3 @@ QUnit.test('add' , function() {
                assert.ok(false);
                assert.ok(false, 'with message');
            });
-
-QUnit.start();
