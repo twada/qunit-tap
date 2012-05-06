@@ -5,8 +5,8 @@
 JS_EXECUTABLES = %w[rhino spidermonkey]
 COMMON_JS_EXECUTABLES = %w[node narwhal]
 
-JS_TESTS = %w[js interop]
-COMMON_JS_TESTS = %w[commonjs interop]
+JS_TESTS = %w[js]
+COMMON_JS_TESTS = %w[commonjs]
 
 SAMPLE_DIR = File.expand_path(File.join(File.dirname(__FILE__), '..', 'sample'))
 def on_dir(name, &blk)

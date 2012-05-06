@@ -164,21 +164,6 @@ for details, see [sample/js/](http://github.com/twada/qunit-tap/tree/master/samp
 for details, see [sample/commonjs/](http://github.com/twada/qunit-tap/tree/master/sample/commonjs/)
 
 
-### to use both under standard js and CommonJS environments
-
-    # assume you are using node.js and rhino
-    $ cd sample/interop/
-    $ rhino run_tests.js
-    $ node test/math_test.js
-    $ node test/incr_test.js
-
-    # with prove
-    $ prove --exec=/usr/bin/rhino run_tests.js
-    $ prove --exec=/usr/local/bin/node test/*.js
-
-for details, see [sample/interop/](http://github.com/twada/qunit-tap/tree/master/sample/interop/)
-
-
 TROUBLE SHOOTING
 ---------------------------------------
 If you are using Node.js (or any CommonJS env) and have an error like this,
