@@ -1,7 +1,7 @@
 load("./lib/math.js");
 load("./lib/incr.js");
 
-load("../../vendor/qunit/qunit/qunit.js");
+load("../../test/compatibility/stable/qunit.js");
 load("../../lib/qunit-tap.js");
 
 qunitTap(QUnit, print, {noPlan: true});

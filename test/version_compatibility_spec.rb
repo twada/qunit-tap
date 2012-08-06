@@ -85,7 +85,7 @@ EOS
   before(:all) do
     FileUtils::mkdir_p HEAD_VERSION_TEST_DIR
     FileUtils::cp "#{File.dirname(__FILE__)}/#{SUITE_FILE_NAME}", HEAD_VERSION_TEST_DIR
-    FileUtils::cp "#{File.dirname(__FILE__)}/../vendor/qunit/qunit/qunit.js", HEAD_VERSION_TEST_DIR
+    FileUtils::cp "#{File.dirname(__FILE__)}/../test/compatibility/stable/qunit.js", HEAD_VERSION_TEST_DIR
   end
   after(:all) do
     FileUtils::rm_rf HEAD_VERSION_TEST_DIR
