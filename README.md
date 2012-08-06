@@ -70,7 +70,7 @@ Three steps to use QUnit-TAP.
 
 ### usage example 3 : use QUnit-TAP with Node.js
     var util = require("util"),
-        QUnit = require('./path/to/qunit'),
+        QUnit = require('qunitjs'),
         qunitTap = require('qunit-tap').qunitTap;
     qunitTap(QUnit, util.puts, { noPlan: true });
     QUnit.init();
@@ -184,6 +184,16 @@ Check QUnit's version you are using. QUnit's module export path has changed sinc
       var util = require("util"),
     -     QUnit = require('./path/to/qunit').QUnit,
     +     QUnit = require('./path/to/qunit'),
+          qunitTap = require('qunit-tap').qunitTap;
+      qunitTap(QUnit, util.puts, { noPlan: true });
+      QUnit.init();
+      QUnit.config.updateRate = 0;
+
+Official QUnit npm module is available since QUnit version 1.9.0, so the best way to get QUnit Object is just use 'qunitjs' module.
+
+      var util = require("util"),
+    -     QUnit = require('./path/to/qunit').QUnit,
+    +     QUnit = require('qunitjs'),
           qunitTap = require('qunit-tap').qunitTap;
       qunitTap(QUnit, util.puts, { noPlan: true });
       QUnit.init();

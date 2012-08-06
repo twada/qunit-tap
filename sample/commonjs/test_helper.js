@@ -12,7 +12,7 @@ var tryRequireThese = function() {
     throw new Error("cannot find module: " + args);
 };
 
-QUnit = require("../../vendor/qunit/qunit/qunit");
+QUnit = require("qunitjs");
 var qunitTap = require("../../lib/qunit-tap").qunitTap;
 
 var sys = tryRequireThese("util", "sys", "system");
