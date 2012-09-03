@@ -45,7 +45,7 @@
     ],
     "devDependencies": {
         "qunitjs": "1.10.0"
-    }
+    },
     "licenses": [
         {
             "type": "MIT",
