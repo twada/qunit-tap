@@ -57,7 +57,7 @@ Three steps to use QUnit-TAP.
     qunitTap(QUnit, print);  //NOTE: 'print' is Rhino/SpiderMonkey's built-in function
 
     // or customize default behavior
-    // qunitTap(QUnit, print, {noPlan: true, showDetailsOnFailure: false});
+    // qunitTap(QUnit, print, {noPlan: true, showExpectationOnFailure: true, showSourceOnFailure: false});
 
     // configure QUnit to run under non-browser env.
     QUnit.init();
@@ -82,7 +82,8 @@ CONFIGURATION OPTIONS
 `qunitTap` function takes third optional argument as options object to customize default behavior. Customization props are,
 
 * noPlan : If true, print test plan line at the bottom after all the test points have run. Inspired by Perl's "no_plan" feature. Default is false.
-* showDetailsOnFailure : If true, show 'expected' and 'actual' on failure output. Default is true.
+* showExpectationOnFailure : If true, show 'expected' and 'actual' on failure output. Default is true.
+* showSourceOnFailure : If true, show source file name and line number on failure output if possible. Default is true.
 
 
 TAP OUTPUT EXAMPLE
