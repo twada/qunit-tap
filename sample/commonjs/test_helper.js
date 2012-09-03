@@ -18,11 +18,7 @@ var qunitTap = require("../../lib/qunit-tap").qunitTap;
 var sys = tryRequireThese("util", "sys", "system");
 puts = (typeof sys.puts === 'function') ? sys.puts : sys.print;
 
-qunitTap(QUnit, puts, {
-    noPlan: true,
-    showExpectationOnFailure: true,
-    showSourceOnFailure: true
-});
+qunitTap(QUnit, puts, {noPlan: true});
 
 QUnit.init();
 QUnit.config.updateRate = 0;
