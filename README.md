@@ -79,12 +79,14 @@ Three steps to use QUnit-TAP.
 
 CONFIGURATION OPTIONS
 ---------------------------------------
-`qunitTap` function takes third optional argument as options object to customize default behavior. Customization props are,
+`qunitTap` function takes third optional argument as options object to override default behavior. Customization props are,
 
 * noPlan : If true, print test plan line at the bottom after all the test points have run. Inspired by Perl's "no_plan" feature. Default is false.
-* showExpectationOnFailure : If true, show 'expected' and 'actual' on failure output. Default is true.
-* showSourceOnFailure : If true, show source file name and line number on failure output if possible. Default is true.
 * initialCount : Initial number for TAP plan line. Default is 1.
+* showExpectationOnFailure : If true, show 'expected' and 'actual' on failure. Default is true.
+* showTestNameOnFailure : If true, show test name on failure (supported since QUnit 1.10.0). Default is true.
+* showModuleNameOnFailure : If true, show module name on failure (supported since QUnit 1.10.0). Default is true.
+* showSourceOnFailure : If true, show source file name and line number on failure if possible. Default is true.
 
 
 TAP OUTPUT EXAMPLE
