@@ -84,6 +84,7 @@ CONFIGURATION OPTIONS
 * noPlan : If true, print test plan line at the bottom after all the test points have run. Inspired by Perl's "no_plan" feature. Default is false.
 * showExpectationOnFailure : If true, show 'expected' and 'actual' on failure output. Default is true.
 * showSourceOnFailure : If true, show source file name and line number on failure output if possible. Default is true.
+* initialCount : Initial number for TAP plan line. Default is 1.
 
 
 TAP OUTPUT EXAMPLE
