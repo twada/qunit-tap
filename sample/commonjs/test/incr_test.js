@@ -1,9 +1,9 @@
-require("../test_helper");
-inc = require("../lib/incr").increment;
+var q = require("../test_helper").QUnit,
+    inc = require("../lib/incr").increment;
 
-QUnit.module("incr module");
+q.module("incr module");
 
-QUnit.test('increment' , function() {
-               assert.equal(inc(1), 2);
-               assert.equal(inc(-3), -2);
-           });
+q.test('increment' , function() {
+    q.equal(inc(1), 2);
+    q.equal(inc(-3), -2);
+});
