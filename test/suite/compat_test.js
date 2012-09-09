@@ -1,4 +1,8 @@
-var q = require("./test_helper").q;
+#!/usr/bin/env node
+
+var helper = require("./test_helper").helper,
+    q = helper.QUnit,
+    starter = helper.starter;
 var inc = require("../../sample/commonjs/lib/incr").increment,
     math = require("../../sample/commonjs/lib/math");
 
@@ -32,3 +36,5 @@ q.test('Diagnostic lines' , function() {
     q.equal("foo\nbar", "foo\r\nbar", "with\r\nmultiline\nmessage");
     q.equal("foo\r\nbar", "foo\nbar", "with\r\nmultiline\nmessage");
 });
+
+starter();
