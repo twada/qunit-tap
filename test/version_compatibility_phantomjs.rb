@@ -117,6 +117,7 @@ EOS
   VERSIONS = Dir.glob("#{SUITE_DIR}/*").map{|d| d.split('/').last}.sort.freeze
   QUNIT_RUNNER = File.expand_path(File.join(File.dirname(__FILE__), '..', 'sample', 'js', 'run_qunit.js'))
   SUITE_FILE_NAME = 'test_compat.html'
+  SUITE_FILE = "#{File.dirname(__FILE__)}/phantomjs/#{SUITE_FILE_NAME}"
   HEAD_VERSION_TEST_DIR = "#{SUITE_DIR}/current"
 
   def self.lessThan(base, version)
@@ -129,7 +130,7 @@ EOS
 
   before(:all) do
     FileUtils::mkdir_p HEAD_VERSION_TEST_DIR
-    FileUtils::cp "#{File.dirname(__FILE__)}/#{SUITE_FILE_NAME}", HEAD_VERSION_TEST_DIR
+    FileUtils::cp SUITE_FILE, HEAD_VERSION_TEST_DIR
     FileUtils::cp "#{File.dirname(__FILE__)}/../test/compatibility/stable/qunit.js", HEAD_VERSION_TEST_DIR
   end
   after(:all) do
@@ -140,7 +141,7 @@ EOS
     context "compatibility test upon #{version}" do
       before do
         unless File.exist? "#{SUITE_DIR}/#{version}/#{SUITE_FILE_NAME}"
-          FileUtils::cp "#{File.dirname(__FILE__)}/#{SUITE_FILE_NAME}", "#{SUITE_DIR}/#{version}"
+          FileUtils::cp SUITE_FILE, "#{SUITE_DIR}/#{version}"
         end
       end
       after do
