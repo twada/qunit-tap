@@ -4,18 +4,18 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 
 NEWS
 ---------------------------------------
+* (2012/09/13) Release 1.2.0: Reorganize configuration options. Some options are marked as deprecated (with safe fallbacks). Changed output message format a little.
+* (2012/09/03) Note for CommonJS users (includes Node.js users): Now 'qunitjs' npm module dependencies in package.json is moved to devDependencies since qunit-tap does not depend on 'qunitjs' module directly. So you should resolve 'qunitjs' on your own.
 * (2012/03/18) Note for CommonJS users (includes Node.js users): QUnit's module export path has changed since QUnit 1.3.0, so you should fix 'require' path to get QUnit Object from 'require' module. (for details, see [my fix](https://github.com/twada/qunit-tap/commit/4799002ae1b9d8a1721da448b98f3dd0d89159d6).)
-* (2012/01/01, 2012/01/05) Slightly changed 'expected and actual result' format on version 1.0.7 and version 1.0.8 to gain readability and follow testing framework naming convention.
-* (2011/03/25) Usage has changed. Please see USAGE section.
 
 
 DESCRIPTION
 ---------------------------------------
-QUnit-TAP is a simple plugin for [QUnit](http://docs.jquery.com/QUnit) to produce [TAP](http://testanything.org/) output, to run tests on CLI.
+QUnit-TAP is a simple plugin for [QUnit](http://qunitjs.com) to produce [TAP](http://testanything.org/) output, to run tests on CLI.
 
-With QUnit-TAP you can test your QUnit test scripts on your terminal, and you can use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation.
+With QUnit-TAP you can run your QUnit test scripts on your terminal, and you can use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation.
 
-QUnit-TAP runs under headless browsers like [phantomjs](http://code.google.com/p/phantomjs/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments (like [node.js](http://nodejs.org/) or [narwhal](http://narwhaljs.org/)), and of cource, runs under real browser too.
+QUnit-TAP runs under headless browsers like [phantomjs](http://code.google.com/p/phantomjs/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments (like [node.js](http://nodejs.org/) or [narwhal](http://narwhaljs.org/)), and of cource, runs on your real browser too.
 
 
 DOWNLOAD
@@ -49,26 +49,22 @@ Three steps to use QUnit-TAP.
     <script type="text/javascript" src="path/to/your_test.js"></script>
     <script type="text/javascript" src="path/to/your_test2.js"></script>
 
-### usage example 2 : use QUnit-TAP with Rhino/SpiderMonkey
-    load("path/to/qunit.js");
-    load("path/to/qunit-tap.js");
+### usage example 2 : use QUnit-TAP with Node.js
 
-    // enable TAP output
-    qunitTap(QUnit, print);  //NOTE: 'print' is Rhino/SpiderMonkey's built-in function
+First, declare qunitjs and qunit-tap as devDependencies in your package.json, then run `npm install`.
 
-    // or customize default behavior
-    // qunitTap(QUnit, print, {noPlan: true, showExpectationOnFailure: true, showSourceOnFailure: false});
+    {
+        . . .
+        "devDependencies": {
+            "qunitjs": "1.10.0",
+            "qunit-tap": "1.2.0",
+            . . .
+        },
+        . . .
+    }
 
-    // configure QUnit to run under non-browser env.
-    QUnit.init();
-    QUnit.config.updateRate = 0;
+Next, require and configure them.
 
-    load("path/to/your_test.js");
-    load("path/to/your_test2.js");
-
-    QUnit.start();
-
-### usage example 3 : use QUnit-TAP with Node.js
     var util = require("util"),
         QUnit = require('qunitjs'),
         qunitTap = require('qunit-tap').qunitTap;
@@ -76,21 +72,42 @@ Three steps to use QUnit-TAP.
     QUnit.init();
     QUnit.config.updateRate = 0;
 
+### usage example 3 : use QUnit-TAP with Rhino/SpiderMonkey
+    load("path/to/qunit.js");
+    load("path/to/qunit-tap.js");
+    
+    // enable TAP output
+    qunitTap(QUnit, print);  //NOTE: 'print' is Rhino/SpiderMonkey's built-in function
+    
+    // or customize default behavior
+    // qunitTap(QUnit, print, {noPlan: true, showExpectationOnFailure: true, showSourceOnFailure: false});
+    
+    // configure QUnit to run under non-browser env.
+    QUnit.init();
+    QUnit.config.updateRate = 0;
+    
+    load("path/to/your_test.js");
+    load("path/to/your_test2.js");
+    
+    QUnit.start();
+
 
 CONFIGURATION OPTIONS
 ---------------------------------------
-`qunitTap` function takes third optional argument as options object to override default behavior. Customization props are,
+QUnit-TAP is already configured with reasonable default. To customize, `qunitTap` function takes third optional argument as options object to override default behavior. Customization props are,
 
-* noPlan : If true, print test plan line at the bottom after all the test points have run. Inspired by Perl's "no_plan" feature. Default is false.
-* initialCount : Initial number for TAP plan line. Default is 1.
-* showExpectationOnFailure : If true, show 'expected' and 'actual' on failure. Default is true.
-* showTestNameOnFailure : If true, show test name on failure (supported since QUnit 1.10.0). Default is true.
-* showModuleNameOnFailure : If true, show module name on failure (supported since QUnit 1.10.0). Default is true.
-* showSourceOnFailure : If true, show source file name and line number on failure if possible. Default is true.
+* `noPlan` : If true, print test plan line at the bottom after all the test points have run. Inspired by Perl's "no_plan" feature. Default is false.
+* `initialCount` : Initial number for TAP plan line. Default is 1.
+* `showExpectationOnFailure` : If true, show 'expected' and 'actual' on failure. Default is true.
+* `showTestNameOnFailure` : If true, show test name on failure (supported since QUnit 1.10.0). Default is true.
+* `showModuleNameOnFailure` : If true, show module name on failure (supported since QUnit 1.10.0). Default is true.
+* `showSourceOnFailure` : If true, show source file name and line number on failure if stack trace is available. Default is true.
 
 
 TAP OUTPUT EXAMPLE
 ---------------------------------------
+QUnit-TAP produces output based on [TAP](http://testanything.org/) specification.
+
     # module: math module
     # test: add
     ok 1
@@ -98,12 +115,12 @@ TAP OUTPUT EXAMPLE
     ok 3 - passing 3 args
     ok 4 - just one arg
     ok 5 - no args
-    not ok 6 - expected: '7' got: '1'
-    not ok 7 - with message, expected: '7' got: '1'
+    not ok 6 - expected: '7', got: '1', test: add, module: math module
+    not ok 7 - with message, expected: '7', got: '1', test: add, module: math module
     ok 8
     ok 9 - with message
-    not ok 10
-    not ok 11 - with message
+    not ok 10 - test: add, module: math module
+    not ok 11 - with message, test: add, module: math module
     # module: incr module
     # test: increment
     ok 12
@@ -116,14 +133,32 @@ TAP OUTPUT EXAMPLE
     not ok 15 - with\r
     # multiline
     # message, expected: 'foo\r
-    # bar' got: 'foo
-    # bar'
+    # bar', got: 'foo
+    # bar', test: Diagnostic lines, module: TAP spec compliance
     not ok 16 - with\r
     # multiline
     # message, expected: 'foo
-    # bar' got: 'foo\r
-    # bar'
+    # bar', got: 'foo\r
+    # bar', test: Diagnostic lines, module: TAP spec compliance
     1..16
+
+Configuration for this example is,
+
+    qunitTap(QUnit, function() { console.log.apply(console, arguments); }, {
+      noPlan: true,
+      showSourceOnFailure: false
+    });
+
+Explicitly, it's same as,
+
+    qunitTap(QUnit, function() { console.log.apply(console, arguments); }, {
+      noPlan: true,
+      initialCount: 1,
+      showExpectationOnFailure: true,
+      showTestNameOnFailure: true,
+      showModuleNameOnFailure: true,
+      showSourceOnFailure: false
+    });
 
 
 RUNNING EXAMPLES
@@ -131,7 +166,6 @@ RUNNING EXAMPLES
 ### prepare
     $ git clone git://github.com/twada/qunit-tap.git
     $ cd qunit-tap
-    $ git submodule update --init 
 
 
 ### to run with PhantomJS
@@ -209,15 +243,15 @@ for details, see [my fix](https://github.com/twada/qunit-tap/commit/4799002ae1b9
 TESTED ENVIRONMENTS
 ---------------------------------------
 * [phantomjs](http://code.google.com/p/phantomjs/)
+* [node.js](http://nodejs.org/)
 * [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey)
 * [Rhino](https://developer.mozilla.org/en/Rhino)
-* [node.js](http://nodejs.org/)
 * [narwhal](http://narwhaljs.org/)
 
 
 AUTHOR
 ---------------------------------------
-Takuto Wada (takuto.wada at gmail dot com)
+* [Takuto Wada](http://github.com/twada)
 
 
 CONTRIBUTORS
