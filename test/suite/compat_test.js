@@ -4,7 +4,8 @@ var helper = require("./test_helper").helper,
     q = helper.QUnit,
     starter = helper.starter;
 var inc = require("../../sample/commonjs/lib/incr").increment,
-    math = require("../../sample/commonjs/lib/math");
+    math = require("../../sample/commonjs/lib/math"),
+    add = math.add;
 
 q.module("incr module");
 q.test('increment' , function() {
@@ -14,7 +15,6 @@ q.test('increment' , function() {
 
 q.module("math module");
 q.test('add' , function() {
-    var add = math.add;
     q.equal(add(1, 4), 5);
     q.equal(add(-3, 2), -1, '');
     q.equal(add(1, 3, 4), 8, 'passing 3 args');
