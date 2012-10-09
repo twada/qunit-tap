@@ -9,6 +9,7 @@ var argv = require('optimist').argv,
     QUnit,
     expected,
     actual = [],
+    slice = Array.prototype.slice,
     note = function (str) {},
     log = function (str) {},
     before_1_0_0 = function () {
@@ -27,10 +28,12 @@ if (argv.verbose) {
 
 var latestFormat = [
     "# module: incr module",
+    "# customized: incr module",
     "# test: increment",
     "ok 1",
     "ok 2",
     "# module: math module",
+    "# customized: math module",
     "# test: add",
     "ok 3",
     "ok 4",
@@ -44,6 +47,7 @@ var latestFormat = [
     "not ok 12 - test: add, module: math module",
     "not ok 13 - with message, test: add, module: math module",
     "# module: TAP spec compliance",
+    "# customized: TAP spec compliance",
     "# test: Diagnostic lines",
     "ok 14 - with\r\n# multiline\n# message",
     "not ok 15 - with\r\n# multiline\n# message, expected: 'foo\r\n# bar', got: 'foo\n# bar', test: Diagnostic lines, module: TAP spec compliance",
@@ -53,10 +57,12 @@ var latestFormat = [
 
 var midFormat = [
     "# module: incr module",
+    "# customized: incr module",
     "# test: increment",
     "ok 1",
     "ok 2",
     "# module: math module",
+    "# customized: math module",
     "# test: add",
     "ok 3",
     "ok 4",
@@ -70,6 +76,7 @@ var midFormat = [
     "not ok 12",
     "not ok 13 - with message",
     "# module: TAP spec compliance",
+    "# customized: TAP spec compliance",
     "# test: Diagnostic lines",
     "ok 14 - with\r\n# multiline\n# message",
     "not ok 15 - with\r\n# multiline\n# message, expected: 'foo\r\n# bar', got: 'foo\n# bar'",
@@ -79,10 +86,12 @@ var midFormat = [
 
 var oldFormat = [
     "# module: incr module",
+    "# customized: incr module",
     "# test: increment",
     "ok 1 - okay: 2",
     "ok 2 - okay: -2",
     "# module: math module",
+    "# customized: math module",
     "# test: add",
     "ok 3 - okay: 5",
     "ok 4 - okay: -1",
@@ -96,6 +105,7 @@ var oldFormat = [
     "not ok 12",
     "not ok 13 - with message",
     "# module: TAP spec compliance",
+    "# customized: TAP spec compliance",
     "# test: Diagnostic lines",
     "ok 14 - with\r\n# multiline\n# message",
     "not ok 15 - with\r\n# multiline\n# message, expected: \"foo\r\n# bar\" result: \"foo\n# bar\"",
@@ -163,6 +173,13 @@ if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
         QUnit.start();
     };
 }
+
+var orig = QUnit.tap.moduleStart;
+QUnit.tap.moduleStart = function(arg) {
+    orig.apply(QUnit.tap, slice.apply(arguments));
+    var name = (typeof arg === 'string') ? arg : arg.name;
+    QUnit.tap.note('customized: ' + name);
+};
 
 exports.helper = {
     QUnit: QUnit,
