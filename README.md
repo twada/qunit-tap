@@ -175,7 +175,7 @@ RUNNING EXAMPLES
     $ ./phantomjs_test.sh
 
     # with prove
-    $ prove phantomjs_test.sh
+    $ prove --exec=sh phantomjs_test.sh
 
 for details, see [phantomjs_test.sh](http://github.com/twada/qunit-tap/tree/master/sample/js/phantomjs_test.sh)
 
@@ -197,7 +197,7 @@ for details, see [sample/js/](http://github.com/twada/qunit-tap/tree/master/samp
     $ node test/incr_test.js
 
     # with prove
-    $ prove --exec=/usr/local/bin/node test/*.js
+    $ prove --exec=/path/to/node test/*.js
 
 for details, see [sample/commonjs/](http://github.com/twada/qunit-tap/tree/master/sample/commonjs/)
 
