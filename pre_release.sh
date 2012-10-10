@@ -10,6 +10,7 @@ fi
 
 PACKAGE_JSON=$DIR/package.json
 QUNIT_TAP_JS=$DIR/lib/qunit-tap.js
+README=$DIR/README.md
 REL_VERSION=`echo $PRE_VERSION | sed -e 's/pre//g'`
 
 cp ${PACKAGE_JSON} ${PACKAGE_JSON}.orig
@@ -19,3 +20,7 @@ rm ${PACKAGE_JSON}.orig
 cp ${QUNIT_TAP_JS} ${QUNIT_TAP_JS}.orig
 cat ${QUNIT_TAP_JS}.orig | sed -e "s/$PRE_VERSION/$REL_VERSION/g" > ${QUNIT_TAP_JS}
 rm ${QUNIT_TAP_JS}.orig
+
+cp ${README} ${README}.orig
+cat ${README}.orig | sed -e "s/\"qunit-tap\": \"\([^\"]*\)\",/\"qunit-tap\": \"${REL_VERSION}\",/g" > ${README}
+rm ${README}.orig
