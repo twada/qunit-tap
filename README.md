@@ -263,4 +263,4 @@ CONTRIBUTORS
 
 LICENSE
 ---------------------------------------
-Dual licensed under the MIT and GPLv2 licenses.
+Dual licensed under the [MIT](https://raw.github.com/twada/qunit-tap/master/MIT-LICENSE.txt) and [GPLv2](https://raw.github.com/twada/qunit-tap/master/GPL-LICENSE.txt) licenses.
