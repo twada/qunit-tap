@@ -178,7 +178,8 @@ var orig = QUnit.tap.moduleStart;
 QUnit.tap.moduleStart = function(arg) {
     orig.apply(QUnit.tap, slice.apply(arguments));
     var name = (typeof arg === 'string') ? arg : arg.name;
-    QUnit.tap.note('customized: ' + name);
+    // 'this' refers to QUnit.tap
+    this.note('customized: ' + name);
 };
 
 exports.helper = {

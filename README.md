@@ -103,6 +103,15 @@ QUnit-TAP is already configured with reasonable default. To customize, `qunitTap
 * `showModuleNameOnFailure` : If true, show module name on failure (supported since QUnit 1.10.0). Default is true.
 * `showSourceOnFailure` : If true, show source file name and line number on failure if stack trace is available. Default is true.
 
+### More on customization
+
+You can even override `moduleStart`, `testStart`,`log`,`done` method in `QUnit.tap` object. In these methods, `this` refers to `QUnit.tap` object.
+
+    QUnit.tap.moduleStart = function(arg) {
+        // 'this' refers to QUnit.tap
+        this.note('customized: ' + arg.name);
+    };
+
 
 TAP OUTPUT EXAMPLE
 ---------------------------------------
