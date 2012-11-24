@@ -3,115 +3,20 @@ var argv = require('optimist').argv,
     qunitPath = "../compatibility/" + qunitVersion + "/qunit",
     qunitTap = require("../../lib/qunit-tap").qunitTap,
     util = require("util"),
+    fs = require('fs'),
+    path = require('path'),
     assert = require('assert'),
     async = require('async'),
     semver = require('semver'),
-    QUnit,
-    expected,
     actual = [],
+    QUnit,
     slice = Array.prototype.slice,
-    note = function (str) {},
-    log = function (str) {},
+    log = argv.verbose ? function (str) { util.puts('# ' + str); } : function (str) {},
     before_1_0_0 = function () {
         return (!semver.valid(qunitVersion) && qunitVersion !== 'stable');
     },
     starter = function () {};
 
-if (argv.verbose) {
-    note = function (str) {
-        util.puts('# ' + str);
-    };
-    log = function (str) {
-        util.puts('# ' + str);
-    };
-}
-
-var latestFormat = [
-    "# module: incr module",
-    "# customized: incr module",
-    "# test: increment",
-    "ok 1",
-    "ok 2",
-    "# module: math module",
-    "# customized: math module",
-    "# test: add",
-    "ok 3",
-    "ok 4",
-    "ok 5 - passing 3 args",
-    "ok 6 - just one arg",
-    "ok 7 - no args",
-    "not ok 8 - expected: '7', got: '1', test: add, module: math module",
-    "not ok 9 - with message, expected: '7', got: '1', test: add, module: math module",
-    "ok 10",
-    "ok 11 - with message",
-    "not ok 12 - test: add, module: math module",
-    "not ok 13 - with message, test: add, module: math module",
-    "# module: TAP spec compliance",
-    "# customized: TAP spec compliance",
-    "# test: Diagnostic lines",
-    "ok 14 - with\r\n# multiline\n# message",
-    "not ok 15 - with\r\n# multiline\n# message, expected: 'foo\r\n# bar', got: 'foo\n# bar', test: Diagnostic lines, module: TAP spec compliance",
-    "not ok 16 - with\r\n# multiline\n# message, expected: 'foo\n# bar', got: 'foo\r\n# bar', test: Diagnostic lines, module: TAP spec compliance",
-    "1..16"
-];
-
-var midFormat = [
-    "# module: incr module",
-    "# customized: incr module",
-    "# test: increment",
-    "ok 1",
-    "ok 2",
-    "# module: math module",
-    "# customized: math module",
-    "# test: add",
-    "ok 3",
-    "ok 4",
-    "ok 5 - passing 3 args",
-    "ok 6 - just one arg",
-    "ok 7 - no args",
-    "not ok 8 - expected: '7', got: '1'",
-    "not ok 9 - with message, expected: '7', got: '1'",
-    "ok 10",
-    "ok 11 - with message",
-    "not ok 12",
-    "not ok 13 - with message",
-    "# module: TAP spec compliance",
-    "# customized: TAP spec compliance",
-    "# test: Diagnostic lines",
-    "ok 14 - with\r\n# multiline\n# message",
-    "not ok 15 - with\r\n# multiline\n# message, expected: 'foo\r\n# bar', got: 'foo\n# bar'",
-    "not ok 16 - with\r\n# multiline\n# message, expected: 'foo\n# bar', got: 'foo\r\n# bar'",
-    "1..16"
-];
-
-var oldFormat = [
-    "# module: incr module",
-    "# customized: incr module",
-    "# test: increment",
-    "ok 1 - okay: 2",
-    "ok 2 - okay: -2",
-    "# module: math module",
-    "# customized: math module",
-    "# test: add",
-    "ok 3 - okay: 5",
-    "ok 4 - okay: -1",
-    "ok 5 - passing 3 args: 8",
-    "ok 6 - just one arg: 2",
-    "ok 7 - no args: 0",
-    "not ok 8 - failed, expected: 7 result: 1",
-    "not ok 9 - with message, expected: 7 result: 1",
-    "ok 10",
-    "ok 11 - with message",
-    "not ok 12",
-    "not ok 13 - with message",
-    "# module: TAP spec compliance",
-    "# customized: TAP spec compliance",
-    "# test: Diagnostic lines",
-    "ok 14 - with\r\n# multiline\n# message",
-    "not ok 15 - with\r\n# multiline\n# message, expected: \"foo\r\n# bar\" result: \"foo\n# bar\"",
-    "not ok 16 - with\r\n# multiline\n# message, expected: \"foo\n# bar\" result: \"foo\r\n# bar\"",
-    "1..16"
-];
 
 // require QUnit (in two ways)
 if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
@@ -120,39 +25,51 @@ if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
     QUnit = require(qunitPath);
 }
 
-// expected output for specific version
-if (qunitVersion === '001_two_args') {
-    expected = oldFormat;
-} else if (before_1_0_0() || semver.lt(qunitVersion, '1.10.0')) {
-    expected = midFormat;
-} else {
-    expected = latestFormat;
-}
 
 var outputSpy = function (str) {
     log(str);
-    actual.push([str, expected.shift()]);
+    actual.push(str);
 };
 
+
 var verifyOutput = function () {
-    async.forEach(actual, function (tuple, next){
+    var fileName;
+    // expected output for specific version
+    if (qunitVersion === '001_two_args') {
+        fileName = 'oldest_format.txt';
+    } else if (before_1_0_0() || semver.lt(qunitVersion, '1.10.0')) {
+        fileName = 'output_before_1_10_0.txt';
+    } else {
+        fileName = 'latest_format.txt';
+    }
+
+    async.series({
+        expected: function(next){
+            fs.readFile(path.resolve(__dirname, fileName), 'utf8', function (err, data) {
+                if (err) throw err;
+                next(null, data);
+            });
+        },
+        actual: function(next){
+            next(null, actual.join('\n') + '\n');
+        },
+    },
+    function(err, results) {
+        if (err) throw err;
         try {
-            assert.equal(tuple[0], tuple[1]);
-            next();
-        } catch (e) {
-            next(e);
-        }
-    }, function(err){
-        if (err) {
-            util.puts('F');
-            util.puts(QUnit.tap.explain(err));
-        } else  {
+            assert.equal(results.actual, results.expected);
             util.print('.');
+        } catch (e) {
+            util.puts('F');
+            if (typeof QUnit.diff === 'function') {
+                util.puts(QUnit.diff(results.actual, results.expected));
+            } else {
+                util.puts(QUnit.tap.explain(e));
+            }
         }
     });
 };
 
-qunitTap(QUnit, outputSpy, {noPlan: true, showSourceOnFailure: false});
 
 // register verifyOutput function
 if (before_1_0_0()) {
@@ -161,6 +78,7 @@ if (before_1_0_0()) {
     QUnit.done(verifyOutput);
 }
 
+qunitTap(QUnit, outputSpy, {noPlan: true, showSourceOnFailure: false});
 QUnit.init();
 
 if (QUnit.config !== undefined) {
