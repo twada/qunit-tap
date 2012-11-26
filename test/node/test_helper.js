@@ -35,9 +35,13 @@ var outputSpy = function (str) {
 var verifyOutput = function () {
     var fileName;
     // expected output for specific version
-    if (qunitVersion === '001_two_args') {
-        fileName = 'oldest_format.txt';
-    } else if (before_1_0_0() || semver.lt(qunitVersion, '1.10.0')) {
+    if (qunitVersion === 'stable') {
+        fileName = 'latest_format.txt';
+    } else if (qunitVersion === '001_two_args') {
+        fileName = '001_format.txt';
+    } else if (before_1_0_0() || semver.lt(qunitVersion, '1.4.0')) {
+        fileName = 'output_before_1_4_0.txt';
+    } else if (semver.lt(qunitVersion, '1.10.0')) {
         fileName = 'output_before_1_10_0.txt';
     } else {
         fileName = 'latest_format.txt';
@@ -64,7 +68,8 @@ var verifyOutput = function () {
             if (typeof QUnit.diff === 'function') {
                 util.puts(QUnit.diff(results.actual, results.expected));
             } else {
-                util.puts(QUnit.tap.explain(e));
+                util.puts('# ' + qunitVersion + ' Failed.');
+                util.puts(results.actual);
             }
         }
     });

@@ -1,0 +1,58 @@
+# module: math module
+# customized: math module
+# test: add
+ok 1 - okay: 5
+ok 2 - okay: -1
+ok 3 - passing 3 args: 8
+ok 4 - just one arg: 2
+ok 5 - no args: 0
+not ok 6 - failed, expected: 7 result: 1
+not ok 7 - with message, expected: 7 result: 1
+ok 8
+ok 9 - with message
+not ok 10
+not ok 11 - with message
+# module: incr module
+# customized: incr module
+# test: increment
+ok 12 - okay: 2
+ok 13 - okay: -2
+# module: TAP spec compliance
+# customized: TAP spec compliance
+# test: Diagnostic lines
+ok 14 - with
+# multiline
+# message
+not ok 15 - with
+# multiline
+# message, expected: "foobar
+# " result: "foo
+# bar"
+# module: QUnit Assertions
+# customized: QUnit Assertions
+# test: equal
+ok 16 - equal('1', 1): 1
+not ok 17 - equal(null, 'null'), expected: "null" result: null
+not ok 18 - equal(undefined, 'undefined'), expected: "undefined" result: undefined
+ok 19 - equal(null, undefined): undefined
+ok 20 - equal(undefined, null): null
+ok 21 - equal(undefined, undefined): undefined
+# test: strictEqual
+not ok 22 - strictEqual(0, '0'), expected: "0" result: 0
+not ok 23 - strictEqual('1', 1), expected: 1 result: "1"
+not ok 24 - strictEqual(null, undefined), expected: undefined result: null
+not ok 25 - strictEqual(undefined, null), expected: null result: undefined
+ok 26 - strictEqual(undefined, undefined): undefined
+# test: deepEqual
+ok 27 - deepEqual(undefined, undefined): undefined
+not ok 28 - deepEqual(['1', '2'], [1, 2]), expected: [&nbsp;&nbsp;&nbsp;1,&nbsp;&nbsp;&nbsp;2] result: [&nbsp;&nbsp;&nbsp;"1",&nbsp;&nbsp;&nbsp;"2"]
+not ok 29 - deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}), expected: {&nbsp;&nbsp;&nbsp;"foo": "fuga",&nbsp;&nbsp;&nbsp;"baz": "piyo"} result: {&nbsp;&nbsp;&nbsp;"foo": "hoge",&nbsp;&nbsp;&nbsp;"bar": "piyo"}
+# test: ok
+not ok 30 - ok(null)
+not ok 31 - ok(undefined)
+ok 32 - ok(1)
+not ok 33 - ok(0)
+not ok 34 - ok('')
+ok 35 - ok([])
+ok 36 - ok({})
+1..36

@@ -6,8 +6,8 @@ ok 2
 ok 3 - passing 3 args
 ok 4 - just one arg
 ok 5 - no args
-not ok 6 - expected: '7', got: '1', test: add, module: math module
-not ok 7 - with message, expected: '7', got: '1', test: add, module: math module
+not ok 6 - expected: 7, got: 1, test: add, module: math module
+not ok 7 - with message, expected: 7, got: 1, test: add, module: math module
 ok 8
 ok 9 - with message
 not ok 10 - test: add, module: math module
@@ -25,7 +25,46 @@ ok 14 - with
 # message
 not ok 15 - with
 # multiline
-# message, expected: 'foobar
-# ', got: 'foo
-# bar', test: Diagnostic lines, module: TAP spec compliance
-1..15
+# message, expected: "foobar
+# ", got: "foo
+# bar", test: Diagnostic lines, module: TAP spec compliance
+# module: QUnit Assertions
+# customized: QUnit Assertions
+# test: equal
+ok 16 - equal('1', 1)
+not ok 17 - equal(null, 'null'), expected: "null", got: null, test: equal, module: QUnit Assertions
+not ok 18 - equal(undefined, 'undefined'), expected: "undefined", got: undefined, test: equal, module: QUnit Assertions
+ok 19 - equal(null, undefined)
+ok 20 - equal(undefined, null)
+ok 21 - equal(undefined, undefined)
+# test: strictEqual
+not ok 22 - strictEqual(0, '0'), expected: "0", got: 0, test: strictEqual, module: QUnit Assertions
+not ok 23 - strictEqual('1', 1), expected: 1, got: "1", test: strictEqual, module: QUnit Assertions
+not ok 24 - strictEqual(null, undefined), expected: undefined, got: null, test: strictEqual, module: QUnit Assertions
+not ok 25 - strictEqual(undefined, null), expected: null, got: undefined, test: strictEqual, module: QUnit Assertions
+ok 26 - strictEqual(undefined, undefined)
+# test: deepEqual
+ok 27 - deepEqual(undefined, undefined)
+not ok 28 - deepEqual(['1', '2'], [1, 2]), expected: [
+#   1,
+#   2
+# ], got: [
+#   "1",
+#   "2"
+# ], test: deepEqual, module: QUnit Assertions
+not ok 29 - deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}), expected: {
+#   "baz": "piyo",
+#   "foo": "fuga"
+# }, got: {
+#   "bar": "piyo",
+#   "foo": "hoge"
+# }, test: deepEqual, module: QUnit Assertions
+# test: ok
+not ok 30 - ok(null), test: ok, module: QUnit Assertions
+not ok 31 - ok(undefined), test: ok, module: QUnit Assertions
+ok 32 - ok(1)
+not ok 33 - ok(0), test: ok, module: QUnit Assertions
+not ok 34 - ok(''), test: ok, module: QUnit Assertions
+ok 35 - ok([])
+ok 36 - ok({})
+1..36

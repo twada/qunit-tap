@@ -53,11 +53,11 @@ not ok 28 - deepEqual(['1', '2'], [1, 2]), expected: [
 #   "2"
 # ]
 not ok 29 - deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}), expected: {
-#   "baz": "piyo",
-#   "foo": "fuga"
+#   "foo": "fuga",
+#   "baz": "piyo"
 # }, got: {
-#   "bar": "piyo",
-#   "foo": "hoge"
+#   "foo": "hoge",
+#   "bar": "piyo"
 # }
 # test: ok
 not ok 30 - ok(null)
