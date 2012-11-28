@@ -33,30 +33,30 @@ var outputSpy = function (str) {
 
 
 var verifyOutput = function () {
-    var fileName;
     // expected output for specific version
+    var expectedFile;
     if (qunitVersion === 'stable') {
-        fileName = 'latest_format.txt';
+        expectedFile = 'latest_format.txt';
     } else if (qunitVersion === '001_two_args') {
-        fileName = '001_format.txt';
+        expectedFile = '001_format.txt';
     } else if (before_1_0_0() || semver.lt(qunitVersion, '1.4.0')) {
-        fileName = 'output_before_1_4_0.txt';
+        expectedFile = 'output_before_1_4_0.txt';
     } else if (semver.lt(qunitVersion, '1.10.0')) {
-        fileName = 'output_before_1_10_0.txt';
+        expectedFile = 'output_before_1_10_0.txt';
     } else {
-        fileName = 'latest_format.txt';
+        expectedFile = 'latest_format.txt';
     }
 
     async.series({
         expected: function(next){
-            fs.readFile(path.resolve(__dirname, fileName), 'utf8', function (err, data) {
+            fs.readFile(path.resolve(__dirname, expectedFile), 'utf8', function (err, data) {
                 if (err) throw err;
                 next(null, data);
             });
         },
         actual: function(next){
             next(null, actual.join('\n') + '\n');
-        },
+        }
     },
     function(err, results) {
         if (err) throw err;
