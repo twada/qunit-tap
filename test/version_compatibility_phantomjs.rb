@@ -13,8 +13,8 @@ ok 2
 ok 3 - passing 3 args
 ok 4 - just one arg
 ok 5 - no args
-not ok 6 - expected: '7', got: '1', test: add, module: math module
-not ok 7 - with message, expected: '7', got: '1', test: add, module: math module
+not ok 6 - expected: 7, got: 1, test: add, module: math module
+not ok 7 - with message, expected: 7, got: 1, test: add, module: math module
 ok 8
 ok 9 - with message
 not ok 10 - test: add, module: math module
@@ -30,14 +30,14 @@ ok 14 - with\r
 # message
 not ok 15 - with\r
 # multiline
-# message, expected: 'foo\r
-# bar', got: 'foo
-# bar', test: Diagnostic lines, module: TAP spec compliance
+# message, expected: "foo\r
+# bar", got: "foo
+# bar", test: Diagnostic lines, module: TAP spec compliance
 not ok 16 - with\r
 # multiline
-# message, expected: 'foo
-# bar', got: 'foo\r
-# bar', test: Diagnostic lines, module: TAP spec compliance
+# message, expected: "foo
+# bar", got: "foo\r
+# bar", test: Diagnostic lines, module: TAP spec compliance
 1..16
 EOS
 
@@ -49,8 +49,8 @@ ok 2
 ok 3 - passing 3 args
 ok 4 - just one arg
 ok 5 - no args
-not ok 6 - expected: '7', got: '1'
-not ok 7 - with message, expected: '7', got: '1'
+not ok 6 - expected: 7, got: 1
+not ok 7 - with message, expected: 7, got: 1
 ok 8
 ok 9 - with message
 not ok 10
@@ -66,14 +66,14 @@ ok 14 - with\r
 # message
 not ok 15 - with\r
 # multiline
-# message, expected: 'foo\r
-# bar', got: 'foo
-# bar'
+# message, expected: "foo\r
+# bar", got: "foo
+# bar"
 not ok 16 - with\r
 # multiline
-# message, expected: 'foo
-# bar', got: 'foo\r
-# bar'
+# message, expected: "foo
+# bar", got: "foo\r
+# bar"
 1..16
 EOS
 
