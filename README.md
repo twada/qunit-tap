@@ -57,7 +57,7 @@ First, declare qunitjs and qunit-tap as devDependencies in your package.json, th
         . . .
         "devDependencies": {
             "qunitjs": "1.10.0",
-            "qunit-tap": "1.2.2",
+            "qunit-tap": "1.3.0",
             . . .
         },
         . . .
