@@ -3,7 +3,12 @@ var q = require("../test_helper_with_plan").QUnit,
 
 q.module("incr module");
 
-q.test('increment' , 2, function() {
+q.test('increment', function() {
+    q.expect(2);
+
     q.equal(inc(1), 2);
-    q.equal(inc(-3), -2);
+    
+    // Corner case: expected 2 assertions, but 1 were run.
+    // But this mismatch is repored as an always-fail assertion,
+    // so the actual run count finally matches.
 });
