@@ -257,6 +257,13 @@ TESTED ENVIRONMENTS
 * [Rhino](https://developer.mozilla.org/en/Rhino)
 
 
+HOW TO RUN VERSION COMPATIBILITY SUITE FOR DEVELOPMENT
+---------------------------------------
+1. install Node.js
+2. install test modules by `npm install`
+3. run `./test/version_compatibility_node.sh`
+
+
 AUTHOR
 ---------------------------------------
 * [Takuto Wada](http://github.com/twada)
