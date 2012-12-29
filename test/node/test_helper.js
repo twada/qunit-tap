@@ -49,7 +49,7 @@ var verifyOutput = function () {
 
     async.series({
         expected: function(next){
-            fs.readFile(path.resolve(__dirname, expectedFile), 'utf8', function (err, data) {
+            fs.readFile(path.resolve(path.join(__dirname, '..', 'expected', expectedFile)), 'utf8', function (err, data) {
                 if (err) throw err;
                 next(null, data);
             });
