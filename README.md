@@ -259,9 +259,18 @@ TESTED ENVIRONMENTS
 
 HOW TO RUN VERSION COMPATIBILITY SUITE FOR DEVELOPMENT
 ---------------------------------------
+### to run version compatibility suite for PhantomJS
+1. [download and install PhantomJS](http://phantomjs.org/download.html)
+2. run `./test/version_compatibility_phantomjs.sh`
+
+### to run version compatibility suite for Node.js
 1. install Node.js
 2. install test modules by `npm install`
 3. run `./test/version_compatibility_node.sh`
+
+### to run version compatibility suite for Rhino
+1. run `./test/download_rhino.sh`
+2. run `./test/version_compatibility_rhino.sh`
 
 
 AUTHOR
