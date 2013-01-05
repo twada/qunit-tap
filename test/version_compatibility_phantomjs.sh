@@ -7,6 +7,14 @@ QUNIT_RUNNER=${DIR}/../sample/js/run_qunit.js
 SUITE_FILE_NAME=test_compat.html
 SUITE_FILE=${DIR}/phantomjs/${SUITE_FILE_NAME}
 
+QUNIT_HEAD_URL=http://code.jquery.com/qunit/qunit-git.js
+HEAD_VERSION_TEST_DIR=${SUITE_DIR}/head
+
+mkdir -p $HEAD_VERSION_TEST_DIR
+cp $SUITE_FILE $HEAD_VERSION_TEST_DIR
+echo "fetching QUnit HEAD"
+curl $QUNIT_HEAD_URL > $HEAD_VERSION_TEST_DIR/qunit.js
+
 for version in $(ls $SUITE_DIR)
 do
     echo "testing ${version}"
@@ -20,3 +28,5 @@ do
     rm ${DIR}/actual.txt
     rm ${SUITE_DIR}/${version}/${SUITE_FILE_NAME}
 done
+
+rm -rf $HEAD_VERSION_TEST_DIR

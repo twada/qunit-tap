@@ -7,10 +7,9 @@ var argv = require('optimist').argv,
     QUnit,
     slice = Array.prototype.slice,
     before_1_0_0 = function () {
-        return (!semver.valid(qunitVersion) && qunitVersion !== 'stable');
+        return !(semver.valid(qunitVersion) || ['stable', 'head'].some(function(v){ return v === qunitVersion; }));
     },
     starter = function () {};
-
 
 // require QUnit (in two ways)
 if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
@@ -24,6 +23,9 @@ QUnit.init();
 
 if (QUnit.config !== undefined) {
     QUnit.config.updateRate = 0;
+    if (QUnit.config.semaphore === 1) {
+        QUnit.config.semaphore = 0;
+    }
 }
 
 // starter function (required before 1.3.0)

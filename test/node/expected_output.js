@@ -5,12 +5,14 @@ var argv = require('optimist').argv,
     path = require('path'),
     semver = require('semver'),
     before_1_0_0 = function () {
-        return (!semver.valid(qunitVersion) && qunitVersion !== 'stable');
+        return !(semver.valid(qunitVersion) || ['stable', 'head'].some(function(v){ return v === qunitVersion; }));
     };
 
 // expected output for specific version
 var expectedFile;
 if (qunitVersion === 'stable') {
+    expectedFile = 'latest_format.txt';
+} else if (qunitVersion === 'head') {
     expectedFile = 'latest_format.txt';
 } else if (qunitVersion === '001_two_args') {
     expectedFile = '001_format.txt';
