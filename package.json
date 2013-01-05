@@ -44,7 +44,6 @@
     ],
     "devDependencies": {
         "qunitjs": "1.10.0",
-        "async": "0.1.22",
         "semver": "1.0.14",
         "optimist": "0.3.4"
     },
