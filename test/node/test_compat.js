@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var helper = require("./test_helper").helper,
     q = helper.QUnit,
     starter = helper.starter;
