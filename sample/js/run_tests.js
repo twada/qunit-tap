@@ -12,5 +12,6 @@ QUnit.config.updateRate = 0;
 load("./test/math_test.js");
 load("./test/incr_test.js");
 load("./test/tap_compliance_test.js");
+load("./test/qunit_assertion_test.js");
 
 QUnit.start();
