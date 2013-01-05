@@ -2,3 +2,5 @@
 test/
 .idea*
 node_modules/
+pre_release.sh
+post_release.sh
