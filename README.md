@@ -284,6 +284,7 @@ CONTRIBUTORS
 * [Hiroki Kondo](http://github.com/kompiro)
 * [Keiji Yoshimi](http://github.com/walf443)
 * [Hiroki Honda](http://github.com/Cside)
+* [gyles19](http://github.com/gyles19)
 
 
 LICENSE

@@ -25,6 +25,10 @@
         {
             "name": "Hiroki Honda",
             "url": "http://github.com/Cside/"
+        },
+        {
+            "name": "gyles19",
+            "url": "http://github.com/gyles19/"
         }
     ],
     "main": "./lib/qunit-tap",
