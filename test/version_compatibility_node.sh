@@ -4,12 +4,8 @@ DIR=$(cd $(dirname $0) && pwd)
 
 SUITE_DIR=${DIR}/compatibility
 
-QUNIT_HEAD_URL=http://code.jquery.com/qunit/qunit-git.js
 HEAD_VERSION_TEST_DIR=${SUITE_DIR}/head
-mkdir -p $HEAD_VERSION_TEST_DIR
-echo "# fetching QUnit HEAD start"
-curl -s $QUNIT_HEAD_URL > $HEAD_VERSION_TEST_DIR/qunit.js
-echo "# fetching QUnit HEAD done"
+$DIR/download_qunit_head.sh $HEAD_VERSION_TEST_DIR
 
 NUM=1
 for version in $(ls $SUITE_DIR)
