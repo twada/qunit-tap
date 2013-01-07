@@ -11,7 +11,6 @@ loadFile('test/compatibility/' + qunitVersion + '/qunit.js');
 loadFile('lib/qunit-tap.js');
 
 qunitTap(QUnit, print, {
-    noPlan: true,
     showModuleNameOnFailure: true,
     showTestNameOnFailure: true,
     showExpectationOnFailure: true,

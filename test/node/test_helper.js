@@ -18,7 +18,7 @@ if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
     QUnit = require(qunitPath);
 }
 
-qunitTap(QUnit, util.puts, {noPlan: true, showSourceOnFailure: false});
+qunitTap(QUnit, util.puts, {showSourceOnFailure: false});
 QUnit.init();
 
 if (QUnit.config !== undefined) {
