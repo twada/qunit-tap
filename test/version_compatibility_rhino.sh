@@ -16,16 +16,9 @@ NUM=1
 for version in $(ls $SUITE_DIR)
 do
     java -jar $DIR/js.jar $DIR/rhino/test_compat_rhino.js $version $ROOT_DIR > ${DIR}/actual.txt
-    node $DIR/node/expected_output.js --version=$version > ${DIR}/expected.txt
-    diff -q ${DIR}/expected.txt ${DIR}/actual.txt > /dev/null
-    if [ $? -eq 0 ]; then
-        echo "ok $NUM - ${version}"
-    else
-        echo "not ok $NUM - ${version}"
-        diff -u ${DIR}/expected.txt ${DIR}/actual.txt
-    fi
-    rm ${DIR}/expected.txt
-    rm ${DIR}/actual.txt
+
+    $DIR/compare_with_expected_output.sh $version $NUM
+
     NUM=`expr $NUM + 1`
 done
 

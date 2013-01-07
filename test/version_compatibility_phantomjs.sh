@@ -19,18 +19,9 @@ do
     cp $SUITE_FILE ${SUITE_DIR}/${version}
     phantomjs ${QUNIT_RUNNER} file://${SUITE_DIR}/${version}/${SUITE_FILE_NAME} > ${DIR}/actual.txt
 
-    node $DIR/node/expected_output.js --version=$version > ${DIR}/expected.txt
-    diff -q ${DIR}/expected.txt ${DIR}/actual.txt > /dev/null
-    if [ $? -eq 0 ]; then
-        echo "ok $NUM - ${version}"
-    else
-        echo "not ok $NUM - ${version}"
-        diff -u ${DIR}/expected.txt ${DIR}/actual.txt
-    fi
-    rm ${DIR}/expected.txt
-    rm ${DIR}/actual.txt
-    NUM=`expr $NUM + 1`
+    $DIR/compare_with_expected_output.sh $version $NUM
 
+    NUM=`expr $NUM + 1`
     rm ${SUITE_DIR}/${version}/${SUITE_FILE_NAME}
 done
 
