@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DIR=$(cd $(dirname $0); pwd -P)
+DIR=$(cd $(dirname $0) && pwd)
 
 $DIR/version_compatibility_node.sh
 $DIR/version_compatibility_phantomjs.sh
