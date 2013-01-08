@@ -13,7 +13,7 @@ QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), 
 
 NEWS
 ---------------------------------------
-* (2013/01/xx) Release 1.3.0: Deprecate `noPlan` option. Now QUnit-TAP works as with `noPlan: true` by default. If you want to delare plan explicitly, please use `QUnit.config.requireExpects` option instead.
+* (2013/01/xx) Release 1.3.0: Deprecate `noPlan` option: Now QUnit-TAP works as with `noPlan: true` by default. If you want to delare plan explicitly, please use `QUnit.config.requireExpects` option instead. Stop using `QUnit.tap` as namespace: `qunitTap` function now returns an object that represents QUnit-TAP API and customization subject.
 * (2012/09/13) Release 1.2.0: Reorganize configuration options. Some options are marked as deprecated (with safe fallbacks). Changed output message format a little.
 
 
@@ -33,11 +33,12 @@ You can use QUnit-TAP,
 
 USAGE
 ---------------------------------------
-Three steps to use QUnit-TAP.
+Simple steps to use QUnit-TAP.
 
 1. load/require qunit.js
 2. load/require qunit-tap.js
 3. Call `qunitTap` function with two or three arguments. The first argument is QUnit object reference, the second is print-like function for TAP output. And the third argument is object to customize default behavior. (Note that the first and second argument is mandatory, and the third argument is optional.)
+4. (optional) `qunitTap` function returns an object that represents QUnit-TAP API.
 
 ### usage example 1 : embed QUnit-TAP in your HTML (e.g. to run with PhantomJS)
     <script type="text/javascript" src="path/to/qunit.js"></script>
@@ -107,10 +108,12 @@ QUnit-TAP is already configured with reasonable default. To customize, `qunitTap
 
 ### More on customization
 
-You can even override `moduleStart`, `testStart`, `log`, `done`, `testDone` method in `QUnit.tap` object. In these methods, `this` refers to `QUnit.tap` object.
+You can even override `moduleStart`, `testStart`, `log`, `done`, `testDone` method in object returned from `qunitTap` function. In these methods, `this` refers to the object returned from `qunitTap` function.
 
-    QUnit.tap.moduleStart = function(arg) {
-        // 'this' refers to QUnit.tap
+    var tap = qunitTap(QUnit, function() { console.log.apply(console, arguments); });
+    . . .
+    tap.moduleStart = function(arg) {
+        // 'this' refers to tap object
         this.note('customized: ' + arg.name);
     };
 

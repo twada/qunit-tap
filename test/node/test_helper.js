@@ -18,7 +18,7 @@ if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
     QUnit = require(qunitPath);
 }
 
-qunitTap(QUnit, util.puts, {showSourceOnFailure: false});
+var tap = qunitTap(QUnit, util.puts, {showSourceOnFailure: false});
 QUnit.init();
 
 if (QUnit.config !== undefined) {
@@ -35,11 +35,11 @@ if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
     };
 }
 
-var orig = QUnit.tap.moduleStart;
-QUnit.tap.moduleStart = function(arg) {
-    orig.apply(QUnit.tap, slice.apply(arguments));
+var orig = tap.moduleStart;
+tap.moduleStart = function(arg) {
+    orig.apply(tap, slice.apply(arguments));
     var name = (typeof arg === 'string') ? arg : arg.name;
-    // 'this' refers to QUnit.tap
+    // 'this' refers to tap object
     this.note('customized: ' + name);
 };
 
