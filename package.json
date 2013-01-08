@@ -16,19 +16,19 @@
         },
         {
             "name": "Hiroki Kondo",
-            "url": "http://github.com/kompiro/"
+            "url": "http://github.com/kompiro"
         },
         {
             "name": "Keiji Yoshimi",
-            "url": "http://github.com/walf443/"
+            "url": "http://github.com/walf443"
         },
         {
             "name": "Hiroki Honda",
-            "url": "http://github.com/Cside/"
+            "url": "http://github.com/Cside"
         },
         {
             "name": "gyles19",
-            "url": "http://github.com/gyles19/"
+            "url": "http://github.com/gyles19"
         }
     ],
     "main": "./lib/qunit-tap",
