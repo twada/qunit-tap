@@ -101,7 +101,7 @@ QUnit-TAP is already configured with reasonable default. To customize, `qunitTap
 * `showModuleNameOnFailure` : If true, show module name on failure (supported since QUnit 1.10.0). Default is true.
 * `showSourceOnFailure` : If true, show source file name and line number on failure if stack trace is available. Default is true.
 
-### Related customization option on QUnit
+### Related config option on QUnit
 
 * `QUnit.config.requireExpects` : If true, QUnit-TAP prints *expected* assertion count as plan line at the bottom after all the test points have run. Otherwise, QUnit-TAP prints *actual* assertion count as plan line at the bottom after all the test points have run.
 
@@ -251,8 +251,8 @@ for details, see [my fix](https://github.com/twada/qunit-tap/commit/4799002ae1b9
 
 TESTED ENVIRONMENTS
 ---------------------------------------
-* [phantomjs](http://phantomjs.org/)
-* [node.js](http://nodejs.org/)
+* [PhantomJS](http://phantomjs.org/)
+* [Node.js](http://nodejs.org/)
 * [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey)
 * [Rhino](https://developer.mozilla.org/en/Rhino)
 
