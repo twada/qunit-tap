@@ -15,7 +15,7 @@ var tryRequireThese = function() {
     sys = tryRequireThese("util", "sys", "system"),
     puts = (typeof sys.puts === 'function') ? sys.puts : sys.print;
 
-qunitTap(QUnit, puts, {noPlan: false, showSourceOnFailure: false});
+qunitTap(QUnit, puts, {showSourceOnFailure: false});
 
 QUnit.init();
 QUnit.config.updateRate = 0;

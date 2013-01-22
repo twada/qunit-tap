@@ -4,7 +4,7 @@ load("./lib/incr.js");
 load("../../test/compatibility/stable/qunit.js");
 load("../../lib/qunit-tap.js");
 
-qunitTap(QUnit, print, {noPlan: true});
+qunitTap(QUnit, print, {showSourceOnFailure: true});
 
 QUnit.init();
 QUnit.config.updateRate = 0;
