@@ -18,6 +18,7 @@ QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), 
 
 NEWS
 ---------------------------------------
+* (2013/08) Release 1.4.0: Now QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using Node.js (or any CommonJS env).
 * (2013/01/10) Release 1.3.0: Deprecate `noPlan` option: Now QUnit-TAP works as with `noPlan: true` by default. If you want to delare plan explicitly, please use `QUnit.config.requireExpects` option instead. Stop using `QUnit.tap` as namespace: `qunitTap` function now returns an object that represents QUnit-TAP API and customization subject.
 * (2012/09/13) Release 1.2.0: Reorganize configuration options. Some options are marked as deprecated (with safe fallbacks). Changed output message format a little.
 
@@ -72,7 +73,7 @@ Next, require and configure them.
 
     var util = require("util"),
         QUnit = require('qunitjs'),
-        qunitTap = require('qunit-tap').qunitTap;
+        qunitTap = require('qunit-tap');
     qunitTap(QUnit, util.puts);
     QUnit.init();
     QUnit.config.updateRate = 0;
@@ -221,6 +222,9 @@ for details, see [sample/commonjs/](http://github.com/twada/qunit-tap/tree/maste
 
 TROUBLE SHOOTING
 ---------------------------------------
+
+### qunitjs loading problem on Node
+
 If you are using Node.js (or any CommonJS env) and have an error like this,
 
     $ node test/incr_test.js 
@@ -255,6 +259,12 @@ Official QUnit npm module is available since QUnit version 1.9.0, so the best wa
       QUnit.config.updateRate = 0;
 
 for details, see [my fix](https://github.com/twada/qunit-tap/commit/4799002ae1b9d8a1721da448b98f3dd0d89159d6).
+
+
+### qunit-tap loading problem on Node
+
+Similarly, QUnit-TAP exports single `qunitTap` function as `module.exports` since 1.4.0. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using Node.js (or any CommonJS env).
+
 
 
 TESTED ENVIRONMENTS

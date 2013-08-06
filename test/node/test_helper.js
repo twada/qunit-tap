@@ -1,7 +1,7 @@
 var argv = require('optimist').argv,
     qunitVersion = argv.version,
     qunitPath = "../compatibility/" + qunitVersion + "/qunit",
-    qunitTap = require("../../lib/qunit-tap").qunitTap,
+    qunitTap = require("../../lib/qunit-tap"),
     util = require("util"),
     semver = require('semver'),
     QUnit,
