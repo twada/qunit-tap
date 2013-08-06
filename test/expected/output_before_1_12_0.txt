@@ -8,9 +8,9 @@ ok 4 - just one arg
 ok 5 - no args
 not ok 6 - expected: 7, got: 1, test: add, module: math module
 not ok 7 - with message, expected: 7, got: 1, test: add, module: math module
-ok 8 - okay
+ok 8
 ok 9 - with message
-not ok 10 - failed, test: add, module: math module
+not ok 10 - test: add, module: math module
 not ok 11 - with message, test: add, module: math module
 # module: incr module
 # customized: incr module

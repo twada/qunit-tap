@@ -15,6 +15,11 @@ $DIR/download_qunit_head.sh $HEAD_VERSION_TEST_DIR
 NUM=1
 for version in $(ls $SUITE_DIR)
 do
+    if [ $version = '1.12.0' -o $version = '1.11.0' -o $version = 'stable' -o $version = 'head' ]; then 
+        echo "# skip $version"
+        continue;
+    fi
+
     java -jar $DIR/js.jar $DIR/rhino/test_compat_rhino.js $version $ROOT_DIR > ${DIR}/actual.txt
 
     $DIR/compare_with_expected_output.sh $version $NUM
