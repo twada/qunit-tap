@@ -25,6 +25,6 @@ do
     rm ${SUITE_DIR}/${version}/${SUITE_FILE_NAME}
 done
 
-echo "1..$(echo `ls $SUITE_DIR | wc -l`)"
+echo "1..$(expr $NUM - 1)"
 
 rm -rf $HEAD_VERSION_TEST_DIR

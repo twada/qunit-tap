@@ -22,6 +22,6 @@ do
     NUM=`expr $NUM + 1`
 done
 
-echo "1..$(echo `ls $SUITE_DIR | wc -l`)"
+echo "1..$(expr $NUM - 1)"
 
 rm -rf $HEAD_VERSION_TEST_DIR
