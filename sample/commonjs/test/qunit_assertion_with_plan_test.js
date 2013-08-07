@@ -1,48 +1,48 @@
-var q = require("../test_helper_with_plan").QUnit;
+var q = require('../test_helper_with_plan').QUnit;
 
-q.module("QUnit Assertions");
+q.module('QUnit Assertions');
 
-q.test('equal' , function() {
+q.test('equal', function (assert) {
     q.expect(6);
 
-    q.equal('1', 1, "equal('1', 1)");
-    q.equal(null, 'null', "equal(null, 'null')");
-    q.equal(undefined, 'undefined', "equal(undefined, 'undefined')");
-    q.equal(null, undefined, "equal(null, undefined)");
-    q.equal(undefined, null, "equal(undefined, null)");
-    q.equal(undefined, undefined, "equal(undefined, undefined)");
+    assert.equal('1', 1, 'equal("1", 1)');
+    assert.equal(null, 'null', 'equal(null, "null")');
+    assert.equal(undefined, 'undefined', 'equal(undefined, "undefined")');
+    assert.equal(null, undefined, 'equal(null, undefined)');
+    assert.equal(undefined, null, 'equal(undefined, null)');
+    assert.equal(undefined, undefined, 'equal(undefined, undefined)');
 });
 
-q.test('strictEqual' , function() {
+q.test('strictEqual', function (assert) {
     q.expect(5);
 
-    q.strictEqual(0, '0', "strictEqual(0, '0')");
-    q.strictEqual('1', 1, "strictEqual('1', 1)");
-    q.strictEqual(null, undefined, "strictEqual(null, undefined)");
-    q.strictEqual(undefined, null, "strictEqual(undefined, null)");
-    q.strictEqual(undefined, undefined, "strictEqual(undefined, undefined)");
+    assert.strictEqual(0, '0', 'strictEqual(0, "0")');
+    assert.strictEqual('1', 1, 'strictEqual("1", 1)');
+    assert.strictEqual(null, undefined, 'strictEqual(null, undefined)');
+    assert.strictEqual(undefined, null, 'strictEqual(undefined, null)');
+    assert.strictEqual(undefined, undefined, 'strictEqual(undefined, undefined)');
 });
 
-q.test('deepEqual' , function() {
+q.test('deepEqual', function (assert) {
     q.expect(3);
 
-    q.deepEqual(undefined, undefined, "deepEqual(undefined, undefined)");
-    q.deepEqual(['1', '2'], [1, 2], "deepEqual(['1', '2'], [1, 2])");
-    q.deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}, "deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'})");
+    assert.deepEqual(undefined, undefined, 'deepEqual(undefined, undefined)');
+    assert.deepEqual(['1', '2'], [1, 2], 'deepEqual(["1", "2"], [1, 2])');
+    assert.deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}, 'deepEqual({foo: "hoge", bar: "piyo"}, {foo: "fuga", baz: "piyo"})');
 });
 
-q.test('ok' , 7, function() {
-    q.ok(null, "ok(null)");
-    q.ok(undefined, "ok(undefined)");
-    q.ok(1, "ok(1)");
-    q.ok(0, "ok(0)");
-    q.ok('', "ok('')");
-    q.ok([], "ok([])");
-    q.ok({}, "ok({})");
+q.test('ok', 7, function (assert) {
+    assert.ok(null, 'ok(null)');
+    assert.ok(undefined, 'ok(undefined)');
+    assert.ok(1, 'ok(1)');
+    assert.ok(0, 'ok(0)');
+    assert.ok('', 'ok("")');
+    assert.ok([], 'ok([])');
+    assert.ok({}, 'ok({})');
 });
 
 
-q.test('throws' , function(assert) {
+q.test('throws', function (assert) {
     q.expect(13);
 
     assert.throws(function () { throw new Error('hoge'); }, 'testing some error is thrown');

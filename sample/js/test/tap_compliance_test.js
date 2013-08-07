@@ -1,6 +1,6 @@
-module("TAP spec compliance");
+module('TAP spec compliance');
 
-test('Diagnostic lines' , function() {
-    ok(true, "with\nmultiline\nmessage");
-    equal("foo\nbar", "foobar\n", "with\nmultiline\nmessage");
+test('Diagnostic lines', function (assert) {
+    assert.ok(true, 'with\nmultiline\nmessage');
+    assert.equal('foo\nbar', 'foobar\n', 'with\nmultiline\nmessage');
 });

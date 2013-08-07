@@ -1,40 +1,40 @@
-module("QUnit Assertions");
+module('QUnit Assertions');
 
-test('equal' , function() {
+test('equal', function (assert) {
     expect(6);
 
-    equal('1', 1, "equal('1', 1)");
-    equal(null, 'null', "equal(null, 'null')");
-    equal(undefined, 'undefined', "equal(undefined, 'undefined')");
-    equal(null, undefined, "equal(null, undefined)");
-    equal(undefined, null, "equal(undefined, null)");
-    equal(undefined, undefined, "equal(undefined, undefined)");
+    assert.equal('1', 1, 'equal("1", 1)');
+    assert.equal(null, 'null', 'equal(null, "null")');
+    assert.equal(undefined, 'undefined', 'equal(undefined, "undefined")');
+    assert.equal(null, undefined, 'equal(null, undefined)');
+    assert.equal(undefined, null, 'equal(undefined, null)');
+    assert.equal(undefined, undefined, 'equal(undefined, undefined)');
 });
 
-test('strictEqual' , function() {
+test('strictEqual', function (assert) {
     expect(5);
 
-    strictEqual(0, '0', "strictEqual(0, '0')");
-    strictEqual('1', 1, "strictEqual('1', 1)");
-    strictEqual(null, undefined, "strictEqual(null, undefined)");
-    strictEqual(undefined, null, "strictEqual(undefined, null)");
-    strictEqual(undefined, undefined, "strictEqual(undefined, undefined)");
+    assert.strictEqual(0, '0', 'strictEqual(0, "0")');
+    assert.strictEqual('1', 1, 'strictEqual("1", 1)');
+    assert.strictEqual(null, undefined, 'strictEqual(null, undefined)');
+    assert.strictEqual(undefined, null, 'strictEqual(undefined, null)');
+    assert.strictEqual(undefined, undefined, 'strictEqual(undefined, undefined)');
 });
 
-test('deepEqual' , function() {
+test('deepEqual', function (assert) {
     expect(3);
 
-    deepEqual(undefined, undefined, "deepEqual(undefined, undefined)");
-    deepEqual(['1', '2'], [1, 2], "deepEqual(['1', '2'], [1, 2])");
-    deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}, "deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'})");
+    assert.deepEqual(undefined, undefined, 'deepEqual(undefined, undefined)');
+    assert.deepEqual(['1', '2'], [1, 2], 'deepEqual(["1", "2"], [1, 2])');
+    assert.deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}, 'deepEqual({foo: "hoge", bar: "piyo"}, {foo: "fuga", baz: "piyo"})');
 });
 
-test('ok' , 7, function() {
-    ok(null, "ok(null)");
-    ok(undefined, "ok(undefined)");
-    ok(1, "ok(1)");
-    ok(0, "ok(0)");
-    ok('', "ok('')");
-    ok([], "ok([])");
-    ok({}, "ok({})");
+test('ok', 7, function (assert) {
+    assert.ok(null, 'ok(null)');
+    assert.ok(undefined, 'ok(undefined)');
+    assert.ok(1, 'ok(1)');
+    assert.ok(0, 'ok(0)');
+    assert.ok('', 'ok("")');
+    assert.ok([], 'ok([])');
+    assert.ok({}, 'ok({})');
 });

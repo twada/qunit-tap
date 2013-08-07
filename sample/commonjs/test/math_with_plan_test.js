@@ -1,22 +1,22 @@
-var q = require("../test_helper_with_plan").QUnit,
-    add = require("../lib/math").add;
+var q = require('../test_helper_with_plan').QUnit,
+    add = require('../lib/math').add;
 
-q.module("math module");
+q.module('math module');
 
-q.test('add' , function() {
+q.test('add', function (assert) {
     q.expect(11);
 
-    q.equal(add(1, 4), 5);
-    q.equal(add(-3, 2), -1, '');
-    q.equal(add(1, 3, 4), 8, 'passing 3 args');
-    q.equal(add(2), 2, 'just one arg');
-    q.equal(add(), 0, 'no args');
+    assert.equal(add(1, 4), 5);
+    assert.equal(add(-3, 2), -1, '');
+    assert.equal(add(1, 3, 4), 8, 'passing 3 args');
+    assert.equal(add(2), 2, 'just one arg');
+    assert.equal(add(), 0, 'no args');
 
-    q.equal(add(-3, 4), 7);
-    q.equal(add(-3, 4), 7, 'with message');
+    assert.equal(add(-3, 4), 7);
+    assert.equal(add(-3, 4), 7, 'with message');
 
-    q.ok(true);
-    q.ok(true, 'with message');
-    q.ok(false);
-    q.ok(false, 'with message');
+    assert.ok(true);
+    assert.ok(true, 'with message');
+    assert.ok(false);
+    assert.ok(false, 'with message');
 });

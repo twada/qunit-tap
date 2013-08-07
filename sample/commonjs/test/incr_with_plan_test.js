@@ -1,12 +1,12 @@
-var q = require("../test_helper_with_plan").QUnit,
-    inc = require("../lib/incr").increment;
+var q = require('../test_helper_with_plan').QUnit,
+    inc = require('../lib/incr').increment;
 
-q.module("incr module");
+q.module('incr module');
 
-q.test('increment', function() {
+q.test('increment', function (assert) {
     q.expect(2);
 
-    q.equal(inc(1), 2);
+    assert.equal(inc(1), 2);
     
     // Corner case: expected 2 assertions, but 1 were run.
     // But this mismatch is repored as an always-fail assertion,

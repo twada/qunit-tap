@@ -1,8 +1,8 @@
-module("incr module");
+module('incr module');
 
-test('increment' , function() {
+test('increment', function (assert) {
     expect(2);
     var inc = incr.increment;
-    equal(inc(1), 2);
-    equal(inc(-3), -2);
+    assert.equal(inc(1), 2);
+    assert.equal(inc(-3), -2);
 });
