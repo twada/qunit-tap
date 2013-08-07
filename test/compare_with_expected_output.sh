@@ -10,7 +10,7 @@ fi
 version=$1
 NUM=$2
 
-node $DIR/node/expected_output.js --version=$version > ${DIR}/expected.txt
+node $DIR/expected/expected_output.js --version=$version > ${DIR}/expected.txt
 diff -q ${DIR}/expected.txt ${DIR}/actual.txt > /dev/null
 if [ $? -eq 0 ]; then
     echo "ok $NUM - ${version}"
