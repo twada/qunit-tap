@@ -32,9 +32,6 @@ if (QUnit.config !== undefined) {
     QUnit.config.updateRate = 0;
 }
 
-loadFile('sample/js/test/math_test.js');
-loadFile('sample/js/test/incr_test.js');
-loadFile('sample/js/test/tap_compliance_test.js');
-loadFile('sample/js/test/qunit_assertion_test.js');
+loadFile('test/suite.js');
 
 QUnit.start();

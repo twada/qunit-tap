@@ -4,8 +4,9 @@ var argv = require('optimist').argv,
     qunitTap = require("../../lib/qunit-tap"),
     util = require("util"),
     semver = require('semver'),
-    QUnit,
     slice = Array.prototype.slice,
+    QUnit,
+    tap,
     before_1_0_0 = function () {
         return !(semver.valid(qunitVersion) || ['stable', 'head'].some(function(v){ return v === qunitVersion; }));
     },
@@ -18,7 +19,7 @@ if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
     QUnit = require(qunitPath);
 }
 
-var tap = qunitTap(QUnit, util.puts, {showSourceOnFailure: false});
+tap = qunitTap(QUnit, util.puts, {showSourceOnFailure: false});
 QUnit.init();
 
 if (QUnit.config !== undefined) {
