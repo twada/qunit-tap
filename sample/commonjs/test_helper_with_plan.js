@@ -11,7 +11,7 @@ var tryRequireThese = function() {
 },
     QUnit = require("../../test/compatibility/stable/qunit"),
     // QUnit = require("../../test/compatibility/head/qunit"),
-    qunitTap = require("../../lib/qunit-tap").qunitTap,
+    qunitTap = require("../../lib/qunit-tap"),
     sys = tryRequireThese("util", "sys", "system"),
     puts = (typeof sys.puts === 'function') ? sys.puts : sys.print;
 
