@@ -19,7 +19,9 @@ if (qunitVersion === 'stable') {
     printContent('latest_format.txt');
 } else if (qunitVersion === '001_two_args') {
     printContent('001_format.txt');
-} else if (before_1_0_0() || semver.lt(qunitVersion, '1.4.0')) {
+} else if (before_1_0_0()) {
+    printContent('output_before_1_0_0.txt');
+} else if (semver.lt(qunitVersion, '1.4.0')) {
     printContent('output_before_1_4_0.txt');
 } else if (semver.lt(qunitVersion, '1.10.0')) {
     printContent('output_before_1_10_0.txt');

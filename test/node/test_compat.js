@@ -45,6 +45,7 @@ tap.moduleStart = function(arg) {
 };
 
 global.QUnit = QUnit;
+global.tap = tap;
 global.incr = require("../../sample/commonjs/lib/incr");
 global.math = require("../../sample/commonjs/lib/math");
 

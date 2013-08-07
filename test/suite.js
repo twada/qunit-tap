@@ -27,6 +27,7 @@ QUnit.module("TAP spec compliance");
 QUnit.test('Diagnostic lines' , function() {
     QUnit.ok(true, "with\nmultiline\nmessage");
     QUnit.equal("foo\nbar", "foobar\n", "with\nmultiline\nmessage");
+    tap.unsubscribe('moduleStart');
 });
 
 QUnit.module("QUnit Assertions");
@@ -49,6 +50,7 @@ QUnit.test('deepEqual' , function() {
     QUnit.deepEqual(undefined, undefined, "deepEqual(undefined, undefined)");
     QUnit.deepEqual(['1', '2'], [1, 2], "deepEqual(['1', '2'], [1, 2])");
     QUnit.deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}, "deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'})");
+    tap.unsubscribe('testStart');
 });
 QUnit.test('ok' , function() {
     QUnit.ok(null, "ok(null)");

@@ -28,8 +28,6 @@ not ok 15 - with
 # message, expected: "foobar
 # ", got: "foo
 # bar", test: Diagnostic lines, module: TAP spec compliance
-# module: QUnit Assertions
-# customized: QUnit Assertions
 # test: equal
 ok 16 - equal('1', 1)
 not ok 17 - equal(null, 'null'), expected: "null", got: null, test: equal, module: QUnit Assertions
@@ -59,7 +57,6 @@ not ok 29 - deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}), e
 #   "bar": "piyo",
 #   "foo": "hoge"
 # }, test: deepEqual, module: QUnit Assertions
-# test: ok
 not ok 30 - ok(null), test: ok, module: QUnit Assertions
 not ok 31 - ok(undefined), test: ok, module: QUnit Assertions
 ok 32 - ok(1)

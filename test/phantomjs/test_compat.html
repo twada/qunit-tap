@@ -11,14 +11,13 @@
 
   <script type="text/javascript" src="../../../lib/qunit-tap.js"></script>
   <script>
+    var tap = qunitTap(QUnit, function() { console.log.apply(console, arguments); }, {
+        showModuleNameOnFailure: true,
+        showTestNameOnFailure: true,
+        showExpectationOnFailure: true,
+        showSourceOnFailure: false
+    });
     (function () {
-      var tap = qunitTap(QUnit, function() { console.log.apply(console, arguments); },
-        {
-          showModuleNameOnFailure: true,
-          showTestNameOnFailure: true,
-          showExpectationOnFailure: true,
-          showSourceOnFailure: false
-        });
       var orig = tap.moduleStart;
       tap.moduleStart = function(arg) {
         orig.apply(tap, Array.prototype.slice.apply(arguments));

@@ -10,14 +10,14 @@ loadFile('sample/js/lib/incr.js');
 loadFile('test/compatibility/' + qunitVersion + '/qunit.js');
 loadFile('lib/qunit-tap.js');
 
-(function () {
-    var tap = qunitTap(QUnit, print, {
-        showModuleNameOnFailure: true,
-        showTestNameOnFailure: true,
-        showExpectationOnFailure: true,
-        showSourceOnFailure: false
-    });
+var tap = qunitTap(QUnit, print, {
+    showModuleNameOnFailure: true,
+    showTestNameOnFailure: true,
+    showExpectationOnFailure: true,
+    showSourceOnFailure: false
+});
 
+(function () {
     var orig = tap.moduleStart;
     tap.moduleStart = function(arg) {
         orig.apply(tap, Array.prototype.slice.apply(arguments));
