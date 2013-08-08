@@ -4,7 +4,7 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 
 CAUTION
 ---------------------------------------
-For Noders: `qunitjs` npm module does not work due to [the issue](https://github.com/jquery/qunit/pull/401). So please use 1.10.0 until the pull-req lands.
+For Noders: `qunitjs` npm module does not work due to [the issue](https://github.com/jquery/qunit/pull/401). So please use 1.10.0 until the [pull-req](https://github.com/jquery/qunit/pull/458) lands.
 
 
 DESCRIPTION
@@ -21,6 +21,27 @@ NEWS
 * (2013/08) Release 1.4.0: Now QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using Node.js (or any CommonJS env). Provide tap#unsubscribe method to unsubscribe specified logging events.
 * (2013/01/10) Release 1.3.0: Deprecate `noPlan` option: Now QUnit-TAP works as with `noPlan: true` by default. If you want to delare plan explicitly, please use `QUnit.config.requireExpects` option instead. Stop using `QUnit.tap` as namespace: `qunitTap` function now returns an object that represents QUnit-TAP API and customization subject.
 * (2012/09/13) Release 1.2.0: Reorganize configuration options. Some options are marked as deprecated (with safe fallbacks). Changed output message format a little.
+
+
+TESTED ENVIRONMENTS
+---------------------------------------
+
+| QUnit version | [PhantomJS](http://phantomjs.org/) | [Node.js](http://nodejs.org/) | [Rhino](https://developer.mozilla.org/en/Rhino) |
+|:--------------|:----------|:--------|:------|
+| 1.0.0         | OK        | OK      | OK    |
+| 1.1.0         | OK        | OK      | OK    |
+| 1.2.0         | OK        | OK      | OK    |
+| 1.3.0         | OK        | OK      | OK    |
+| 1.4.0         | OK        | OK      | OK    |
+| 1.5.0         | OK        | OK      | OK    |
+| 1.6.0         | OK        | OK      | OK    |
+| 1.7.0         | OK        | OK      | OK    |
+| 1.8.0         | OK        | OK      | OK    |
+| 1.9.0         | OK        | OK      | OK    |
+| 1.10.0        | OK        | OK      | OK    |
+| 1.11.0        | OK        | [NG](https://github.com/jquery/qunit/pull/401) | [NG](https://github.com/jquery/qunit/pull/401) |
+| 1.12.0        | OK        | [NG](https://github.com/jquery/qunit/pull/401) | [NG](https://github.com/jquery/qunit/pull/401) |
+| HEAD          | OK        | [NG](https://github.com/jquery/qunit/pull/401) until [PR](https://github.com/jquery/qunit/pull/458) lands | [NG](https://github.com/jquery/qunit/pull/401) until [PR](https://github.com/jquery/qunit/pull/458) lands |
 
 
 DOWNLOAD
@@ -265,14 +286,6 @@ for details, see [my fix](https://github.com/twada/qunit-tap/commit/4799002ae1b9
 
 Similarly, QUnit-TAP exports single `qunitTap` function as `module.exports` since 1.4.0. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using Node.js (or any CommonJS env).
 
-
-
-TESTED ENVIRONMENTS
----------------------------------------
-* [PhantomJS](http://phantomjs.org/)
-* [Node.js](http://nodejs.org/)
-* [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey)
-* [Rhino](https://developer.mozilla.org/en/Rhino)
 
 
 HOW TO RUN REGRESSION TESTS FOR DEVELOPMENT
