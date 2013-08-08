@@ -2,11 +2,6 @@ QUnit-TAP - a TAP Output Producer Plugin for QUnit
 ================================
 
 
-CAUTION
----------------------------------------
-For Noders: `qunitjs` npm module does not work due to [the issue](https://github.com/jquery/qunit/pull/401). So please use 1.10.0 until the [pull-req](https://github.com/jquery/qunit/pull/458) lands.
-
-
 DESCRIPTION
 ---------------------------------------
 QUnit-TAP is a simple plugin for [QUnit](http://qunitjs.com/) to produce [TAP](http://testanything.org/) output.
@@ -14,6 +9,12 @@ QUnit-TAP is a simple plugin for [QUnit](http://qunitjs.com/) to produce [TAP](h
 QUnit-TAP provides TAP output feature for *ANY* version of QUnit (except 1.11.0). With QUnit-TAP you can run your QUnit test scripts on your terminal, use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation, pass test output to [Jenkins](http://jenkins-ci.org/), and so on.
 
 QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments like [Node.js](http://nodejs.org/), and of cource, runs on your real browser too.
+
+
+CAUTION for Node.js users
+---------------------------------------
+* BC BREAK: Since 1.4.0, QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using `qunit-tap` module via npm.
+* `qunitjs` npm module does not work due to [the issue](https://github.com/jquery/qunit/pull/401). So please use 1.10.0 until the [pull-req](https://github.com/jquery/qunit/pull/458) lands.
 
 
 NEWS
