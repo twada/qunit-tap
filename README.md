@@ -6,7 +6,7 @@ DESCRIPTION
 ---------------------------------------
 QUnit-TAP is a simple plugin for [QUnit](http://qunitjs.com/) to produce [TAP](http://testanything.org/) output.
 
-QUnit-TAP provides TAP output feature for *ANY* version of QUnit (except 1.11.0). With QUnit-TAP you can run your QUnit test scripts on your terminal, use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation, pass test output to [Jenkins](http://jenkins-ci.org/), and so on.
+QUnit-TAP provides TAP output feature for *ANY* version of QUnit (but there are some exceptions. see TESTED ENVIRONMENTS section below). With QUnit-TAP you can run your QUnit test scripts on your terminal, use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation, pass test output to [Jenkins](http://jenkins-ci.org/), and so on.
 
 QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments like [Node.js](http://nodejs.org/), and of cource, runs on your real browser too.
 
@@ -69,56 +69,65 @@ Simple steps to use QUnit-TAP.
 4. (optional) `qunitTap` function returns an object that represents QUnit-TAP API.
 
 ### usage example 1 : embed QUnit-TAP in your HTML (e.g. to run with PhantomJS)
-    <script type="text/javascript" src="path/to/qunit.js"></script>
-    <script type="text/javascript" src="path/to/qunit-tap.js"></script>
-    <script>
-      qunitTap(QUnit, function() { console.log.apply(console, arguments); });
-    </script>
-    <script type="text/javascript" src="path/to/your_test.js"></script>
-    <script type="text/javascript" src="path/to/your_test2.js"></script>
+
+```html
+<script type="text/javascript" src="path/to/qunit.js"></script>
+<script type="text/javascript" src="path/to/qunit-tap.js"></script>
+<script>
+  qunitTap(QUnit, function() { console.log.apply(console, arguments); });
+</script>
+<script type="text/javascript" src="path/to/your_test.js"></script>
+<script type="text/javascript" src="path/to/your_test2.js"></script>
+```
 
 ### usage example 2 : use QUnit-TAP with Node.js
 
 First, declare qunitjs and qunit-tap as devDependencies in your package.json, then run `npm install`.
 
-    {
+```javascript
+{
+    . . .
+    "devDependencies": {
+        "qunitjs": "1.10.0",
+        "qunit-tap": "1.4.0",
         . . .
-        "devDependencies": {
-            "qunitjs": "1.10.0",
-            "qunit-tap": "1.4.0",
-            . . .
-        },
-        . . .
-    }
+    },
+    . . .
+}
+```
 
 Next, require and configure them.
 
-    var util = require("util"),
-        QUnit = require('qunitjs'),
-        qunitTap = require('qunit-tap');
-    qunitTap(QUnit, util.puts);
-    QUnit.init();
-    QUnit.config.updateRate = 0;
+```javascript
+var util = require("util"),
+    QUnit = require('qunitjs'),
+    qunitTap = require('qunit-tap');
+qunitTap(QUnit, util.puts);
+QUnit.init();
+QUnit.config.updateRate = 0;
+```
 
 ### usage example 3 : use QUnit-TAP with Rhino/SpiderMonkey
-    load("path/to/qunit.js");
-    load("path/to/qunit-tap.js");
-    
-    // enable TAP output
-    qunitTap(QUnit, print);  //NOTE: 'print' is Rhino/SpiderMonkey's built-in function
-    
-    // or customize default behavior
-    // qunitTap(QUnit, print, {showExpectationOnFailure: true, showSourceOnFailure: false});
-    
-    // configure QUnit to run under non-browser env.
-    QUnit.init();
-    QUnit.config.updateRate = 0;
-    
-    load("path/to/your_test.js");
-    load("path/to/your_test2.js");
-    
-    QUnit.start();
 
+```javascript
+load("path/to/qunit.js");
+load("path/to/qunit-tap.js");
+
+// enable TAP output
+qunitTap(QUnit, print);  //NOTE: 'print' is Rhino/SpiderMonkey's built-in function
+
+// or customize default behavior
+// qunitTap(QUnit, print, {showExpectationOnFailure: true, showSourceOnFailure: false});
+
+// configure QUnit to run under non-browser env.
+QUnit.init();
+QUnit.config.updateRate = 0;
+
+load("path/to/your_test.js");
+load("path/to/your_test2.js");
+
+QUnit.start();
+```
 
 CONFIGURATION OPTIONS
 ---------------------------------------
@@ -138,13 +147,14 @@ QUnit-TAP is already configured with reasonable default. To customize, `qunitTap
 
 You can even override `moduleStart`, `testStart`, `log`, `done`, `testDone` method in object returned from `qunitTap` function. In these methods, `this` refers to the object returned from `qunitTap` function.
 
-    var tap = qunitTap(QUnit, function() { console.log.apply(console, arguments); });
-    . . .
-    tap.moduleStart = function(arg) {
-        // 'this' refers to tap object
-        this.note('customized: ' + arg.name);
-    };
-
+```javascript
+var tap = qunitTap(QUnit, function() { console.log.apply(console, arguments); });
+. . .
+tap.moduleStart = function(arg) {
+    // 'this' refers to tap object
+    this.note('customized: ' + arg.name);
+};
+```
 
 TAP OUTPUT EXAMPLE
 ---------------------------------------
@@ -186,19 +196,23 @@ QUnit-TAP produces output based on [TAP](http://testanything.org/) specification
 
 Configuration for this example is,
 
-    qunitTap(QUnit, function() { console.log.apply(console, arguments); }, {
-      showSourceOnFailure: false
-    });
+```javascript
+qunitTap(QUnit, function() { console.log.apply(console, arguments); }, {
+  showSourceOnFailure: false
+});
+```
 
 Explicitly, it's same as,
 
-    qunitTap(QUnit, function() { console.log.apply(console, arguments); }, {
-      initialCount: 1,
-      showExpectationOnFailure: true,
-      showTestNameOnFailure: true,
-      showModuleNameOnFailure: true,
-      showSourceOnFailure: false
-    });
+```javascript
+qunitTap(QUnit, function() { console.log.apply(console, arguments); }, {
+  initialCount: 1,
+  showExpectationOnFailure: true,
+  showTestNameOnFailure: true,
+  showModuleNameOnFailure: true,
+  showSourceOnFailure: false
+});
+```
 
 
 RUNNING EXAMPLES
