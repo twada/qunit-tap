@@ -1,5 +1,10 @@
-QUnit-TAP - a TAP Output Producer Plugin for QUnit
+QUnit-TAP
 ================================
+
+[![NPM version](https://badge.fury.io/js/qunit-tap.png)](http://badge.fury.io/js/qunit-tap)
+[![Dependency Status](https://gemnasium.com/twada/qunit-tap.png)](https://gemnasium.com/twada/qunit-tap)
+
+A TAP Output Producer Plugin for QUnit
 
 
 DESCRIPTION
