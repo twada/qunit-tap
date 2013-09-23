@@ -54,11 +54,11 @@
     "licenses": [
         {
             "type": "MIT",
-            "url": "http://www.opensource.org/licenses/mit-license.php"
+            "url": "https://raw.github.com/twada/qunit-tap/master/MIT-LICENSE.txt"
         },
         {
             "type": "GPL",
-            "url": "http://www.opensource.org/licenses/gpl-2.0.php"
+            "url": "https://raw.github.com/twada/qunit-tap/master/GPL-LICENSE.txt"
         }
     ],
     "bugs": {
