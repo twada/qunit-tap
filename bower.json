@@ -1,0 +1,9 @@
+{
+    "name": "qunit-tap",
+    "version": "1.4.0",
+    "main": "lib/qunit-tap.js",
+    "devDependencies": {
+        "qunit": "1.10.0"
+    },
+    "private": true
+}
