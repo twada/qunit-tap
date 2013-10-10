@@ -2,6 +2,13 @@
     "name": "qunit-tap",
     "version": "1.4.0",
     "main": "lib/qunit-tap.js",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "pre_release.sh",
+        "post_release.sh",
+        "test"
+    ],
     "devDependencies": {
         "qunit": "1.10.0"
     }
