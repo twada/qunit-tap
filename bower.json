@@ -4,6 +4,5 @@
     "main": "lib/qunit-tap.js",
     "devDependencies": {
         "qunit": "1.10.0"
-    },
-    "private": true
+    }
 }
