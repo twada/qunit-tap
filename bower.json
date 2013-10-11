@@ -4,9 +4,11 @@
     "main": "lib/qunit-tap.js",
     "ignore": [
         "**/.*",
+        "package.json",
         "node_modules",
         "pre_release.sh",
         "post_release.sh",
+        "sample",
         "test"
     ],
     "devDependencies": {
