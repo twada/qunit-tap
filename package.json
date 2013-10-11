@@ -1,7 +1,7 @@
 {
     "name": "qunit-tap",
     "description": "A TAP Output Producer Plugin for QUnit",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "keywords": ["TDD", "QUnit", "test", "tests", "testing", "TAP"],
     "homepage": "http://github.com/twada/qunit-tap",
     "author": {
