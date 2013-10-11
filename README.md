@@ -56,12 +56,14 @@ DOWNLOAD
 * or download archives from [qunit-tap tags](https://github.com/twada/qunit-tap/tags)
 * or `git clone git://github.com/twada/qunit-tap.git`
 * or `npm install qunit-tap` if you use npm.
+* or `bower install qunit-tap` if you use [bower](http://bower.io/).
 
 You can use QUnit-TAP,
 
 * as a single file, copy lib/qunit-tap.js to anywhere you like.
 * as git submodule.
 * as a node.js package (via npm).
+* as a bower component (via bower).
 
 
 USAGE
@@ -336,6 +338,7 @@ CONTRIBUTORS
 * [Keiji Yoshimi](http://github.com/walf443)
 * [Hiroki Honda](http://github.com/Cside)
 * [gyles19](http://github.com/gyles19)
+* [Alexander Mackay-Austin](https://github.com/am-a)
 
 
 LICENSE

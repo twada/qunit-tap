@@ -29,6 +29,10 @@
         {
             "name": "gyles19",
             "url": "http://github.com/gyles19"
+        },
+        {
+            "name": "Alexander Mackay-Austin",
+            "url": "https://github.com/am-a"
         }
     ],
     "main": "./lib/qunit-tap",
