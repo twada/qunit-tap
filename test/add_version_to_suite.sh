@@ -10,7 +10,7 @@ fi
 DIR=`dirname $0`
 TEMP_ARCHIVE_PATH=$DIR/qunit_downloaded.tar.gz
 
-wget https://github.com/jquery/qunit/tarball/v${TARGET_VERSION} -O ${TEMP_ARCHIVE_PATH}
+wget https://github.com/jquery/qunit/tarball/${TARGET_VERSION} -O ${TEMP_ARCHIVE_PATH}
 QUNIT_JS_PATH=`tar ztf $TEMP_ARCHIVE_PATH | grep 'qunit.js'`
 QUNIT_CSS_PATH=`tar ztf $TEMP_ARCHIVE_PATH | grep 'qunit.css'`
 tar zxf $TEMP_ARCHIVE_PATH $QUNIT_JS_PATH
