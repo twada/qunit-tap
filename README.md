@@ -16,17 +16,16 @@ QUnit-TAP provides TAP output feature for *ANY* version of QUnit (but there are 
 QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments like [Node.js](http://nodejs.org/), and of cource, runs on your real browser too.
 
 
-CAUTION for Node.js users
----------------------------------------
-* BC BREAK: Since 1.4.0, QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using `qunit-tap` module via npm.
-* `qunitjs` npm module does not work due to [the issue](https://github.com/jquery/qunit/pull/401). So please use 1.10.0 until the [pull-req](https://github.com/jquery/qunit/pull/458) lands.
-
-
 CHANGELOG
 ---------------------------------------
 * (2013/08/08) Release 1.4.0: Now QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using Node.js (or any CommonJS env). Provide tap#unsubscribe method to unsubscribe specified logging events.
 * (2013/01/10) Release 1.3.0: Deprecate `noPlan` option: Now QUnit-TAP works as with `noPlan: true` by default. If you want to delare plan explicitly, please use `QUnit.config.requireExpects` option instead. Stop using `QUnit.tap` as namespace: `qunitTap` function now returns an object that represents QUnit-TAP API and customization subject.
 * (2012/09/13) Release 1.2.0: Reorganize configuration options. Some options are marked as deprecated (with safe fallbacks). Changed output message format a little.
+
+
+CAUTION for Node.js users
+---------------------------------------
+* BC BREAK: Since 1.4.0, QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using `qunit-tap` module via npm.
 
 
 TESTED ENVIRONMENTS
@@ -47,7 +46,9 @@ TESTED ENVIRONMENTS
 | 1.10.0        | OK        | OK      | OK    |
 | 1.11.0        | OK        | [NG](https://github.com/jquery/qunit/pull/401) | [NG](https://github.com/jquery/qunit/pull/401) |
 | 1.12.0        | OK        | [NG](https://github.com/jquery/qunit/pull/401) | [NG](https://github.com/jquery/qunit/pull/401) |
-| HEAD          | OK        | [NG](https://github.com/jquery/qunit/pull/401) until [PR](https://github.com/jquery/qunit/pull/458) lands | [NG](https://github.com/jquery/qunit/pull/401) until [PR](https://github.com/jquery/qunit/pull/458) lands |
+| 1.13.0        | OK        | OK      | OK    |
+| 1.14.0        | OK        | OK      | OK    |
+| HEAD          | OK        | OK      | OK    |
 
 
 DOWNLOAD
@@ -95,7 +96,7 @@ First, declare qunitjs and qunit-tap as devDependencies in your package.json, th
 {
     . . .
     "devDependencies": {
-        "qunitjs": "1.10.0",
+        "qunitjs": "1.14.0",
         "qunit-tap": "1.4.1",
         . . .
     },
@@ -110,8 +111,11 @@ var util = require("util"),
     QUnit = require('qunitjs'),
     qunitTap = require('qunit-tap');
 qunitTap(QUnit, util.puts);
-QUnit.init();
-QUnit.config.updateRate = 0;
+QUnit.config.autorun = false;
+
+// your tests
+
+QUnit.load();
 ```
 
 ### usage example 3 : use QUnit-TAP with Rhino/SpiderMonkey
@@ -127,13 +131,12 @@ qunitTap(QUnit, print);  //NOTE: 'print' is Rhino/SpiderMonkey's built-in functi
 // qunitTap(QUnit, print, {showExpectationOnFailure: true, showSourceOnFailure: false});
 
 // configure QUnit to run under non-browser env.
-QUnit.init();
-QUnit.config.updateRate = 0;
+QUnit.config.autorun = false;
 
 load("path/to/your_test.js");
 load("path/to/your_test2.js");
 
-QUnit.start();
+QUnit.load();
 ```
 
 CONFIGURATION OPTIONS
@@ -288,8 +291,7 @@ Check QUnit's version you are using. QUnit's module export path has changed sinc
     +     QUnit = require('./path/to/qunit'),
           qunitTap = require('qunit-tap').qunitTap;
       qunitTap(QUnit, util.puts);
-      QUnit.init();
-      QUnit.config.updateRate = 0;
+      QUnit.config.autorun = false;
 
 Official QUnit npm module is available since QUnit version 1.9.0, so the best way to get QUnit Object is just use 'qunitjs' module.
 
@@ -298,8 +300,7 @@ Official QUnit npm module is available since QUnit version 1.9.0, so the best wa
     +     QUnit = require('qunitjs'),
           qunitTap = require('qunit-tap').qunitTap;
       qunitTap(QUnit, util.puts);
-      QUnit.init();
-      QUnit.config.updateRate = 0;
+      QUnit.config.autorun = false;
 
 for details, see [my fix](https://github.com/twada/qunit-tap/commit/4799002ae1b9d8a1721da448b98f3dd0d89159d6).
 
