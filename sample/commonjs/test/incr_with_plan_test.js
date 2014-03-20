@@ -1,4 +1,5 @@
 var q = require('../test_helper_with_plan').QUnit,
+    startTest = require('../test_helper_with_plan').startTest,
     inc = require('../lib/incr').increment;
 
 q.module('incr module');
@@ -12,3 +13,5 @@ q.test('increment', function (assert) {
     // But this mismatch is repored as an always-fail assertion,
     // so the actual run count finally matches.
 });
+
+startTest();

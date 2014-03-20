@@ -1,4 +1,5 @@
 var q = require('../test_helper').QUnit,
+    startTest = require('../test_helper').startTest,
     add = require('../lib/math').add;
 
 q.module('math module');
@@ -18,3 +19,5 @@ q.test('add', function (assert) {
     assert.ok(false);
     assert.ok(false, 'with message');
 });
+
+startTest();

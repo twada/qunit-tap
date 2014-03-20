@@ -1,4 +1,5 @@
-var q = require('../test_helper_with_plan').QUnit;
+var q = require('../test_helper_with_plan').QUnit,
+    startTest = require('../test_helper_with_plan').startTest;
 
 q.module('QUnit Assertions');
 
@@ -86,3 +87,5 @@ q.test('throws', function (assert) {
     assert.throws(function () { throw 'hoge'; }, /^hoge$/, 'throwing string then assert that using regex');
     assert.throws(function () { throw 'fuga'; }, /^hoge$/, 'throwing string then assert that using regex');
 });
+
+startTest();
