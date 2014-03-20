@@ -2,5 +2,6 @@
 test/
 .idea*
 node_modules/
+bower_components/
 pre_release.sh
 post_release.sh

@@ -15,7 +15,7 @@ $DIR/download_qunit_head.sh $HEAD_VERSION_TEST_DIR
 NUM=1
 for version in $(ls $SUITE_DIR)
 do
-    if [ $version = '1.12.0' -o $version = '1.11.0' -o $version = 'stable' -o $version = 'head' ]; then 
+    if [ $version = '1.12.0' -o $version = '1.11.0' ]; then 
         echo "# skip $version"
         continue;
     fi

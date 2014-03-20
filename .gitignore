@@ -2,4 +2,5 @@
 *~
 .idea
 node_modules/
+bower_components/
 test/js.jar

@@ -20,19 +20,26 @@ if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
 }
 
 tap = qunitTap(QUnit, util.puts, {showSourceOnFailure: false});
-QUnit.init();
-
-if (QUnit.config !== undefined) {
-    QUnit.config.updateRate = 0;
-    if (QUnit.config.semaphore === 1) {
-        QUnit.config.semaphore = 0;
+if (before_1_0_0() || semver.lt(qunitVersion, '1.12.0')) {
+    QUnit.init();
+    if (QUnit.config !== undefined) {
+        QUnit.config.updateRate = 0;
+        if (QUnit.config.semaphore === 1) {
+            QUnit.config.semaphore = 0;
+        }
     }
+} else if (semver.gte(qunitVersion, '1.13.0')) {
+    QUnit.config.autorun = false;
 }
 
 // starter function (required before 1.3.0)
 if (before_1_0_0() || semver.lt(qunitVersion, '1.3.0')) {
     starter = function () {
         QUnit.start();
+    };
+} else if (semver.gte(qunitVersion, '1.13.0')) {
+    starter = function () {
+        QUnit.load();
     };
 }
 

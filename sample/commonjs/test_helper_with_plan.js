@@ -9,19 +9,17 @@ var tryRequireThese = function() {
     }
     throw new Error("cannot find module: " + args);
 },
-    QUnit = require("../../test/compatibility/1.10.0/qunit"),
+    QUnit = require("../../test/compatibility/stable/qunit"),
     qunitTap = require("../../lib/qunit-tap"),
     sys = tryRequireThese("util", "sys", "system"),
     puts = (typeof sys.puts === 'function') ? sys.puts : sys.print;
 
 qunitTap(QUnit, puts, {showSourceOnFailure: true});
-
-QUnit.init();
-QUnit.config.updateRate = 0;
-if (QUnit.config.semaphore === 1) {
-    QUnit.config.semaphore = 0;
-}
 QUnit.config.reorder = false;
 QUnit.config.requireExpects = true;
+QUnit.config.autorun = false;
 
 exports.QUnit = QUnit;
+exports.startTest = function () {
+    QUnit.load();
+};
