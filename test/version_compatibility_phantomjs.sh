@@ -13,8 +13,14 @@ if [ -e $HEAD_VERSION_TEST_DIR/qunit.js ]; then
     cp $SUITE_FILE $HEAD_VERSION_TEST_DIR
 fi
 
+if [ $# -eq 1 ]; then
+    TEST_SUITES=$1
+else
+    TEST_SUITES=$(ls $SUITE_DIR)
+fi
+
 NUM=1
-for version in $(ls $SUITE_DIR)
+for version in $TEST_SUITES
 do
     cp $SUITE_FILE ${SUITE_DIR}/${version}
     phantomjs ${QUNIT_RUNNER} file://${SUITE_DIR}/${version}/${SUITE_FILE_NAME} > ${DIR}/actual.txt

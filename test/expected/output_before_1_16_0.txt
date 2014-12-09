@@ -10,8 +10,8 @@ not ok 6 - expected: 7, got: 1, test: add, module: math module
 not ok 7 - with message, expected: 7, got: 1, test: add, module: math module
 ok 8 - okay
 ok 9 - with message
-not ok 10 - failed, expected argument to be truthy, was: false, expected: true, got: false, test: add, module: math module
-not ok 11 - with message, expected: true, got: false, test: add, module: math module
+not ok 10 - failed, expected argument to be truthy, was: false, expected: undefined, got: null, test: add, module: math module
+not ok 11 - with message, expected: undefined, got: null, test: add, module: math module
 # module: incr module
 # customized: incr module
 # test: increment
@@ -60,11 +60,11 @@ not ok 29 - deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}), e
 #   "foo": "hoge"
 # }, test: deepEqual, module: QUnit Assertions
 # test: ok
-not ok 30 - ok(null), expected: true, got: null, test: ok, module: QUnit Assertions
-not ok 31 - ok(undefined), expected: true, got: undefined, test: ok, module: QUnit Assertions
+not ok 30 - ok(null), expected: undefined, got: null, test: ok, module: QUnit Assertions
+not ok 31 - ok(undefined), expected: undefined, got: null, test: ok, module: QUnit Assertions
 ok 32 - ok(1)
-not ok 33 - ok(0), expected: true, got: 0, test: ok, module: QUnit Assertions
-not ok 34 - ok(''), expected: true, got: "", test: ok, module: QUnit Assertions
+not ok 33 - ok(0), expected: undefined, got: null, test: ok, module: QUnit Assertions
+not ok 34 - ok(''), expected: undefined, got: null, test: ok, module: QUnit Assertions
 ok 35 - ok([])
 ok 36 - ok({})
 1..36
