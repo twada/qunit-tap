@@ -1,7 +1,7 @@
 {
     "name": "qunit-tap",
     "description": "A TAP Output Producer Plugin for QUnit",
-    "version": "1.5.0pre",
+    "version": "1.5.0",
     "keywords": ["TDD", "QUnit", "test", "tests", "testing", "TAP"],
     "homepage": "http://github.com/twada/qunit-tap",
     "author": {
@@ -40,6 +40,14 @@
         "lib": "./lib",
         "example": "./sample"
     },
+    "files": [
+        "GPL-LICENSE.txt",
+        "MIT-LICENSE.txt",
+        "README.md",
+        "lib",
+        "package.json",
+        "sample"
+    ],
     "repository": {
         "type": "git", 
         "url": "http://github.com/twada/qunit-tap.git"
