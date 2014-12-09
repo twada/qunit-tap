@@ -18,6 +18,7 @@ QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), 
 
 CHANGELOG
 ---------------------------------------
+* (2014/12/10) Release 1.5.0: Now supports 1.15.0 and 1.16.0. Drops support for too old before-1.0.0 QUnit.
 * (2013/08/08) Release 1.4.0: Now QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using Node.js (or any CommonJS env). Provide tap#unsubscribe method to unsubscribe specified logging events.
 * (2013/01/10) Release 1.3.0: Deprecate `noPlan` option: Now QUnit-TAP works as with `noPlan: true` by default. If you want to delare plan explicitly, please use `QUnit.config.requireExpects` option instead. Stop using `QUnit.tap` as namespace: `qunitTap` function now returns an object that represents QUnit-TAP API and customization subject.
 * (2012/09/13) Release 1.2.0: Reorganize configuration options. Some options are marked as deprecated (with safe fallbacks). Changed output message format a little.
@@ -48,6 +49,8 @@ TESTED ENVIRONMENTS
 | 1.12.0        | OK        | [NG](https://github.com/jquery/qunit/pull/401) | [NG](https://github.com/jquery/qunit/pull/401) |
 | 1.13.0        | OK        | OK      | OK    |
 | 1.14.0        | OK        | OK      | OK    |
+| 1.15.0        | OK        | OK      | OK    |
+| 1.16.0        | OK        | OK      | OK    |
 | HEAD          | OK        | OK      | OK    |
 
 
@@ -97,7 +100,7 @@ First, declare qunitjs and qunit-tap as devDependencies in your package.json, th
     . . .
     "devDependencies": {
         "qunitjs": "1.14.0",
-        "qunit-tap": "1.4.2",
+        "qunit-tap": "1.5.0",
         . . .
     },
     . . .
