@@ -4,26 +4,29 @@ var argv = require('optimist').argv,
     util = require("util"),
     fs = require('fs'),
     path = require('path'),
-    semver = require('semver'),
-    printContent = function (filename) {
-        var content = fs.readFileSync(path.resolve(path.join(__dirname, '..', 'expected', filename)), 'utf8');
-        util.print(content);
-    };
+    semver = require('semver');
 
-if (qunitVersion === 'stable') {
-    printContent('latest_format.txt');
-} else if (qunitVersion === 'head') {
-    printContent('latest_format.txt');
-} else if (semver.lt(qunitVersion, '1.4.0')) {
-    printContent('output_before_1_4_0.txt');
-} else if (semver.lt(qunitVersion, '1.10.0')) {
-    printContent('output_before_1_10_0.txt');
-} else if (semver.lt(qunitVersion, '1.12.0')) {
-    printContent('output_before_1_12_0.txt');
-} else if (semver.lt(qunitVersion, '1.15.0')) {
-    printContent('output_before_1_15_0.txt');
-} else if (semver.lt(qunitVersion, '1.16.0')) {
-    printContent('output_before_1_16_0.txt');
-} else {
-    printContent('latest_format.txt');
+function expectedFileFor (version) {
+    if (version === 'stable' || version === 'head') {
+        return 'latest_format.txt';
+    } else if (semver.satisfies(version, '1.0.0 - 1.3.0')) {
+        return 'output-1_0_0-to-1_3_0.txt';
+    } else if (semver.satisfies(version, '1.4.0 - 1.9.0')) {
+        return 'output-1_4_0-to-1_9_0.txt';
+    } else if (semver.satisfies(version, '1.10.0 - 1.11.0')) {
+        return 'output-1_10_0-to-1_11_0.txt';
+    } else if (semver.satisfies(version, '1.12.0 - 1.14.0')) {
+        return 'output-1_12_0-to-1_14_0.txt';
+    } else if (semver.satisfies(version, '1.15.0')) {
+        return 'output-1_15_0.txt';
+    } else {
+        return 'latest_format.txt';
+    }
 }
+
+function printContent (filename) {
+    var content = fs.readFileSync(path.resolve(path.join(__dirname, '..', 'expected', filename)), 'utf8');
+    util.print(content);
+}
+
+printContent(expectedFileFor(qunitVersion));
