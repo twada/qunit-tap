@@ -1,5 +1,10 @@
 // expected output for specific version
-var argv = require('optimist').argv,
+var minimist = require('minimist'),
+    argv = minimist(process.argv.slice(2), {
+        string: [
+            'version'
+        ]
+    }),
     qunitVersion = argv.version,
     util = require("util"),
     fs = require('fs'),

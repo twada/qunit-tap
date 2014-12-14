@@ -1,4 +1,9 @@
-var argv = require('optimist').argv,
+var minimist = require('minimist'),
+    argv = minimist(process.argv.slice(2), {
+        string: [
+            'version'
+        ]
+    }),
     qunitVersion = argv.version,
     qunitPath = "../compatibility/" + qunitVersion + "/qunit",
     qunitTap = require("../../lib/qunit-tap"),
