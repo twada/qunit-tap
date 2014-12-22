@@ -48,6 +48,11 @@
         "package.json",
         "sample"
     ],
+    "scripts": {
+        "test-node": "node test/runner.js --suite=node",
+        "test-phantomjs": "node test/runner.js --suite=phantomjs",
+        "test": "npm run test-node"
+    },
     "repository": {
         "type": "git", 
         "url": "http://github.com/twada/qunit-tap.git"
@@ -61,7 +66,8 @@
     "devDependencies": {
         "minimist": "~1.1.0",
         "qunitjs": "1.16.0",
-        "semver": "1.1.4"
+        "semver": "1.1.4",
+        "tap-consumer": "git://github.com/twada/tap-consumer.git#fix-super"
     },
     "licenses": [
         {

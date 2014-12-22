@@ -1,10 +1,11 @@
 QUnit-TAP
 ================================
 
-[![NPM version](https://badge.fury.io/js/qunit-tap.png)](http://badge.fury.io/js/qunit-tap)
-[![Dependency Status](https://gemnasium.com/twada/qunit-tap.png)](https://gemnasium.com/twada/qunit-tap)
-
 A TAP Output Producer Plugin for QUnit
+
+[![Build Status][travis-image]][travis-url]
+[![NPM version][npm-image]][npm-url]
+[![Dependency Status][depstat-image]][depstat-url]
 
 
 DESCRIPTION
@@ -348,3 +349,13 @@ CONTRIBUTORS
 LICENSE
 ---------------------------------------
 Dual licensed under the [MIT](https://raw.github.com/twada/qunit-tap/master/MIT-LICENSE.txt) and [GPLv2](https://raw.github.com/twada/qunit-tap/master/GPL-LICENSE.txt) licenses.
+
+
+[npm-url]: https://npmjs.org/package/qunit-tap
+[npm-image]: https://badge.fury.io/js/qunit-tap.svg
+
+[travis-url]: http://travis-ci.org/twada/qunit-tap
+[travis-image]: https://secure.travis-ci.org/twada/qunit-tap.svg?branch=master
+
+[depstat-url]: https://gemnasium.com/twada/qunit-tap
+[depstat-image]: https://gemnasium.com/twada/qunit-tap.svg
