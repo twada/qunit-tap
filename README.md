@@ -12,14 +12,14 @@ DESCRIPTION
 ---------------------------------------
 QUnit-TAP is a simple plugin for [QUnit](http://qunitjs.com/) to produce [TAP](http://testanything.org/) output.
 
-QUnit-TAP provides TAP output feature for *ANY* version of QUnit (but there are some exceptions. see TESTED ENVIRONMENTS section below). With QUnit-TAP you can run your QUnit test scripts on your terminal, use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation, pass test output to [Jenkins](http://jenkins-ci.org/), and so on.
+QUnit-TAP provides TAP output feature for *ANY* version of QUnit (But there are some exceptions. See [TESTED ENVIRONMENTS](https://github.com/twada/qunit-tap#tested-environments) section below). With QUnit-TAP you can run your QUnit test scripts on your terminal, use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation, pass test output to [Jenkins](http://jenkins-ci.org/), and so on.
 
 QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments like [Node.js](http://nodejs.org/), and of cource, runs on your real browser too.
 
 
 CHANGELOG
 ---------------------------------------
-* (2014/12/10) Release 1.5.0: Now supports 1.15.0 and 1.16.0. Drops support for too old before-1.0.0 QUnit.
+* (2014/12/10) Release 1.5.0: Now supports QUnit 1.15.0 and 1.16.0. Drops support for too old QUnit versions (before-1.0.0).
 * (2013/08/08) Release 1.4.0: Now QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using Node.js (or any CommonJS env). Provide tap#unsubscribe method to unsubscribe specified logging events.
 * (2013/01/10) Release 1.3.0: Deprecate `noPlan` option: Now QUnit-TAP works as with `noPlan: true` by default. If you want to delare plan explicitly, please use `QUnit.config.requireExpects` option instead. Stop using `QUnit.tap` as namespace: `qunitTap` function now returns an object that represents QUnit-TAP API and customization subject.
 * (2012/09/13) Release 1.2.0: Reorganize configuration options. Some options are marked as deprecated (with safe fallbacks). Changed output message format a little.
