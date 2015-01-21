@@ -50,6 +50,7 @@
     ],
     "scripts": {
         "test-node": "node test/runner.js --suite=node",
+        "test-rhino": "node test/runner.js --suite=rhino",
         "test-phantomjs": "node test/runner.js --suite=phantomjs",
         "test": "npm run test-node"
     },
