@@ -12,16 +12,19 @@ var minimist = require('minimist'),
     slice = Array.prototype.slice,
     QUnit,
     tap,
+    print = function() { console.log.apply(console, arguments); },
     starter = function () {};
 
 // require QUnit (in two ways)
-if (semver.lt(qunitVersion, '1.3.0')) {
+if (semver.valid(qunitVersion) && semver.lt(qunitVersion, '1.3.0')) {
     QUnit = require(qunitPath).QUnit;
 } else {
     QUnit = require(qunitPath);
 }
 
-tap = qunitTap(QUnit, util.puts, {showSourceOnFailure: false});
+qunitVersion = QUnit.version ? QUnit.version : qunitVersion;
+
+tap = qunitTap(QUnit, print, {showSourceOnFailure: false});
 if (semver.lt(qunitVersion, '1.12.0')) {
     QUnit.init();
     if (QUnit.config !== undefined) {

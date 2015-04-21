@@ -66,8 +66,7 @@
     ],
     "devDependencies": {
         "minimist": "~1.1.0",
-        "qunitjs": "1.16.0",
-        "semver": "1.1.4",
+        "semver": "~4.3.3",
         "tap-consumer": "git://github.com/twada/tap-consumer.git#fix-super"
     },
     "licenses": [

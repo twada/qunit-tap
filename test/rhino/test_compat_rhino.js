@@ -7,10 +7,12 @@ var qunitVersion = arguments[0],
 loadFile('sample/js/lib/math.js');
 loadFile('sample/js/lib/incr.js');
 
-loadFile('node_modules/semver/semver.js');
+loadFile('node_modules/semver/semver.browser.js');
 
 loadFile('test/compatibility/' + qunitVersion + '/qunit.js');
 loadFile('lib/qunit-tap.js');
+
+qunitVersion = QUnit.version ? QUnit.version : qunitVersion;
 
 var tap = qunitTap(QUnit, print, {
     showModuleNameOnFailure: true,
