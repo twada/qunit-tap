@@ -55,12 +55,19 @@ tap.moduleStart = function(arg) {
     // 'this' refers to tap object
     this.note('customized: ' + name);
 };
+QUnit.done(function() {
+    print('');
+});
 
 global.QUnit = QUnit;
 global.tap = tap;
 global.incr = require("../../sample/commonjs/lib/incr");
 global.math = require("../../sample/commonjs/lib/math");
 
-require("../suite");
+if (semver.gte(qunitVersion, '1.19.0')) {
+    require("../suite_2_x");
+} else {
+    require("../suite");
+}
 
 starter();

@@ -31,7 +31,7 @@ function expectedFileFor (version) {
 
 function printContent (filename) {
     var content = fs.readFileSync(path.resolve(path.join(__dirname, '..', 'expected', filename)), 'utf8');
-    util.print(content);
+    console.log(content);
 }
 
 printContent(expectedFileFor(qunitVersion));

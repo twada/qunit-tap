@@ -5,7 +5,7 @@ var q = require('../test_helper_with_plan').QUnit,
 q.module('incr module');
 
 q.test('increment', function (assert) {
-    q.expect(2);
+    assert.expect(2);
 
     assert.equal(inc(1), 2);
     

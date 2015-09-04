@@ -13,12 +13,13 @@ var tryRequireThese = function() {
     QUnit = require("../../test/compatibility/stable/qunit"),
     qunitTap = require("../../lib/qunit-tap"),
     sys = tryRequireThese("util", "sys", "system"),
-    puts = (typeof sys.puts === 'function') ? sys.puts : sys.print;
+    puts = function() { console.log.apply(console, arguments); };
 
 qunitTap(QUnit, puts, {showSourceOnFailure: true});
 QUnit.config.autorun = false;
 
 exports.QUnit = QUnit;
 exports.startTest = function () {
+    puts('# QUnit.version ' + QUnit.version);
     QUnit.load();
 };
