@@ -56,6 +56,7 @@ TESTED ENVIRONMENTS
 | 1.17.1        | OK        | OK      | OK    |
 | 1.18.0        | OK        | OK      | OK    |
 | 1.19.0        | OK        | OK      | NG    |
+| 1.20.0        | OK        | OK      | NG    |
 | HEAD          | OK        | OK      | NG    |
 
 
