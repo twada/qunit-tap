@@ -10,11 +10,11 @@ A TAP Output Producer Plugin for QUnit
 
 DESCRIPTION
 ---------------------------------------
-QUnit-TAP is a simple plugin for [QUnit](http://qunitjs.com/) to produce [TAP](http://testanything.org/) output.
+QUnit-TAP is a simple plugin for [QUnit](https://qunitjs.com/) to produce [TAP](https://testanything.org/) output.
 
-QUnit-TAP provides TAP output feature for *ANY* version of QUnit (But there are some exceptions. See [TESTED ENVIRONMENTS](https://github.com/twada/qunit-tap#tested-environments) section below). With QUnit-TAP you can run your QUnit test scripts on your terminal, use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation, pass test output to [Jenkins](http://jenkins-ci.org/), and so on.
+QUnit-TAP provides TAP output feature for *ANY* version of QUnit (But there are some exceptions. See [TESTED ENVIRONMENTS](https://github.com/twada/qunit-tap#tested-environments) section below). With QUnit-TAP you can run your QUnit test scripts on your terminal, use TAP Consumers like [prove](http://perldoc.perl.org/prove.html) for test automation, pass test output to [Jenkins](https://jenkins-ci.org/), and so on.
 
-QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments like [Node.js](http://nodejs.org/), and of cource, runs on your real browser too.
+QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), command-line js environments (like [SpiderMonkey](https://developer.mozilla.org/en/SpiderMonkey) or [Rhino](https://developer.mozilla.org/en/Rhino)), and [CommonJS](http://commonjs.org/) environments like [Node.js](https://nodejs.org/), and of cource, runs on your real browser too.
 
 
 CHANGELOG
@@ -33,7 +33,7 @@ CAUTION for Node.js users
 TESTED ENVIRONMENTS
 ---------------------------------------
 
-| QUnit version | [PhantomJS](http://phantomjs.org/) | [Node.js](http://nodejs.org/) | [Rhino](https://developer.mozilla.org/en/Rhino) |
+| QUnit version | [PhantomJS](http://phantomjs.org/) | [Node.js](https://nodejs.org/) | [Rhino](https://developer.mozilla.org/en/Rhino) |
 |:--------------|:----------|:--------|:------|
 | 1.0.0         | OK        | OK      | OK    |
 | 1.1.0         | OK        | OK      | OK    |
@@ -62,7 +62,7 @@ TESTED ENVIRONMENTS
 
 DOWNLOAD
 ---------------------------------------
-* Just download [qunit-tap.js](http://github.com/twada/qunit-tap/raw/master/lib/qunit-tap.js)
+* Just download [qunit-tap.js](https://github.com/twada/qunit-tap/raw/master/lib/qunit-tap.js)
 * or download archives from [qunit-tap tags](https://github.com/twada/qunit-tap/tags)
 * or `git clone git://github.com/twada/qunit-tap.git`
 * or `npm install qunit-tap` if you use npm.
@@ -177,7 +177,7 @@ tap.moduleStart = function(arg) {
 
 TAP OUTPUT EXAMPLE
 ---------------------------------------
-QUnit-TAP produces output based on [TAP](http://testanything.org/) specification.
+QUnit-TAP produces output based on [TAP](https://testanything.org/) specification.
 
     # module: math module
     # test: add
@@ -250,7 +250,7 @@ RUNNING EXAMPLES
     # with prove
     $ prove --exec=sh phantomjs_test.sh
 
-for details, see [phantomjs_test.sh](http://github.com/twada/qunit-tap/tree/master/sample/js/phantomjs_test.sh)
+for details, see [phantomjs_test.sh](https://github.com/twada/qunit-tap/tree/master/sample/js/phantomjs_test.sh)
 
 
 ### to run with Rhino/SpiderMonkey
@@ -259,7 +259,7 @@ for details, see [phantomjs_test.sh](http://github.com/twada/qunit-tap/tree/mast
     $ cd sample/js/
     $ java -jar /path/to/js.jar run_tests.js
 
-for details, see [sample/js/](http://github.com/twada/qunit-tap/tree/master/sample/js/)
+for details, see [sample/js/](https://github.com/twada/qunit-tap/tree/master/sample/js/)
 
 
 ### to run under CommonJS environment (includes Node.js)
@@ -272,7 +272,7 @@ for details, see [sample/js/](http://github.com/twada/qunit-tap/tree/master/samp
     # with prove
     $ prove --exec=/path/to/node test/*.js
 
-for details, see [sample/commonjs/](http://github.com/twada/qunit-tap/tree/master/sample/commonjs/)
+for details, see [sample/commonjs/](https://github.com/twada/qunit-tap/tree/master/sample/commonjs/)
 
 
 TROUBLE SHOOTING
@@ -338,16 +338,16 @@ HOW TO RUN REGRESSION TESTS FOR DEVELOPMENT
 
 AUTHOR
 ---------------------------------------
-* [Takuto Wada](http://github.com/twada)
+* [Takuto Wada](https://github.com/twada)
 
 
 CONTRIBUTORS
 ---------------------------------------
-* [Nikita Vasilyev](http://github.com/NV)
-* [Hiroki Kondo](http://github.com/kompiro)
-* [Keiji Yoshimi](http://github.com/walf443)
-* [Hiroki Honda](http://github.com/Cside)
-* [gyles19](http://github.com/gyles19)
+* [Nikita Vasilyev](https://github.com/NV)
+* [Hiroki Kondo](https://github.com/kompiro)
+* [Keiji Yoshimi](https://github.com/walf443)
+* [Hiroki Honda](https://github.com/Cside)
+* [gyles19](https://github.com/gyles19)
 * [Alexander Mackay-Austin](https://github.com/am-a)
 
 
@@ -359,7 +359,7 @@ Dual licensed under the [MIT](https://raw.github.com/twada/qunit-tap/master/MIT-
 [npm-url]: https://npmjs.org/package/qunit-tap
 [npm-image]: https://badge.fury.io/js/qunit-tap.svg
 
-[travis-url]: http://travis-ci.org/twada/qunit-tap
+[travis-url]: https://travis-ci.org/twada/qunit-tap
 [travis-image]: https://secure.travis-ci.org/twada/qunit-tap.svg?branch=master
 
 [depstat-url]: https://gemnasium.com/twada/qunit-tap
