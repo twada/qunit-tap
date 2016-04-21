@@ -4,9 +4,6 @@ DIR=$(cd $(dirname $0) && pwd)
 
 SUITE_DIR=${DIR}/compatibility
 
-HEAD_VERSION_TEST_DIR=${SUITE_DIR}/head
-$DIR/download_qunit_head.sh $HEAD_VERSION_TEST_DIR
-
 if [ $# -eq 1 ]; then
     TEST_SUITES=$1
 else
@@ -29,5 +26,3 @@ do
 done
 
 echo "1..$(expr $NUM - 1)"
-
-rm -rf $HEAD_VERSION_TEST_DIR

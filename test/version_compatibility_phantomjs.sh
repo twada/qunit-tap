@@ -7,12 +7,6 @@ QUNIT_RUNNER=${DIR}/../sample/js/run_qunit.js
 SUITE_FILE_NAME=test_compat.html
 SUITE_FILE=${DIR}/phantomjs/${SUITE_FILE_NAME}
 
-HEAD_VERSION_TEST_DIR=${SUITE_DIR}/head
-$DIR/download_qunit_head.sh $HEAD_VERSION_TEST_DIR
-if [ -e $HEAD_VERSION_TEST_DIR/qunit.js ]; then
-    cp $SUITE_FILE $HEAD_VERSION_TEST_DIR
-fi
-
 if [ $# -eq 1 ]; then
     TEST_SUITES=$1
 else
@@ -32,5 +26,3 @@ do
 done
 
 echo "1..$(expr $NUM - 1)"
-
-rm -rf $HEAD_VERSION_TEST_DIR
