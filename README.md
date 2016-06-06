@@ -59,7 +59,8 @@ TESTED ENVIRONMENTS
 | 1.20.0        | OK        | OK      | NG    |
 | 1.21.0        | OK        | OK      | NG    |
 | 1.22.0        | OK        | OK      | NG    |
-| HEAD          | OK        | OK      | NG    |
+| 1.23.0        | OK        | OK      | NG    |
+| 1.23.1        | OK        | OK      | NG    |
 
 
 DOWNLOAD
