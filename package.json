@@ -52,7 +52,7 @@
         "test-node": "node test/runner.js --suite=node",
         "test-rhino": "node test/runner.js --suite=rhino",
         "test-phantomjs": "node test/runner.js --suite=phantomjs",
-        "test": "npm run test-node"
+        "test": "npm run test-node && npm run test-phantomjs"
     },
     "repository": {
         "type": "git", 
@@ -65,6 +65,7 @@
         "phantomjs"
     ],
     "devDependencies": {
+        "phantomjs-prebuilt": "^2.1.7",
         "minimist": "~1.1.0",
         "semver": "~4.3.3",
         "tap-consumer": "git://github.com/twada/tap-consumer.git#fix-super"

@@ -49,7 +49,7 @@ page.onConsoleMessage = function(msg) {
     console.log(msg);
 };
 
-page.open(args[0], function(status){
+page.open(args[1], function(status){
     if (status !== "success") {
         console.log("Unable to access network");
         phantom.exit(1);
