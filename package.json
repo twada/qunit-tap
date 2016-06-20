@@ -1,86 +1,93 @@
 {
-    "name": "qunit-tap",
-    "description": "A TAP Output Producer Plugin for QUnit",
-    "version": "1.5.0",
-    "keywords": ["TDD", "QUnit", "test", "tests", "testing", "TAP"],
-    "homepage": "https://github.com/twada/qunit-tap",
-    "author": {
-        "name": "Takuto Wada",
-        "email": "takuto.wada@gmail.com",
-        "url": "https://github.com/twada"
+  "name": "qunit-tap",
+  "description": "A TAP Output Producer Plugin for QUnit",
+  "version": "1.5.0",
+  "author": {
+    "name": "Takuto Wada",
+    "email": "takuto.wada@gmail.com",
+    "url": "https://github.com/twada"
+  },
+  "bugs": {
+    "url": "https://github.com/twada/qunit-tap/issues"
+  },
+  "contributors": [
+    {
+      "name": "Nikita Vasilyev",
+      "url": "http://elv1s.ru/"
     },
-    "contributors": [
-        {
-            "name": "Nikita Vasilyev",
-            "url": "http://elv1s.ru/"
-        },
-        {
-            "name": "Hiroki Kondo",
-            "url": "https://github.com/kompiro"
-        },
-        {
-            "name": "Keiji Yoshimi",
-            "url": "https://github.com/walf443"
-        },
-        {
-            "name": "Hiroki Honda",
-            "url": "https://github.com/Cside"
-        },
-        {
-            "name": "gyles19",
-            "url": "https://github.com/gyles19"
-        },
-        {
-            "name": "Alexander Mackay-Austin",
-            "url": "https://github.com/am-a"
-        }
-    ],
-    "main": "./lib/qunit-tap",
-    "directories": {
-        "lib": "./lib",
-        "example": "./sample"
+    {
+      "name": "Hiroki Kondo",
+      "url": "https://github.com/kompiro"
     },
-    "files": [
-        "GPL-LICENSE.txt",
-        "MIT-LICENSE.txt",
-        "README.md",
-        "lib",
-        "package.json",
-        "sample"
-    ],
-    "scripts": {
-        "test-node": "node test/runner.js --suite=node",
-        "test-rhino": "node test/runner.js --suite=rhino",
-        "test-phantomjs": "node test/runner.js --suite=phantomjs",
-        "test": "npm run test-node && npm run test-phantomjs"
+    {
+      "name": "Keiji Yoshimi",
+      "url": "https://github.com/walf443"
     },
-    "repository": {
-        "type": "git", 
-        "url": "https://github.com/twada/qunit-tap.git"
+    {
+      "name": "Hiroki Honda",
+      "url": "https://github.com/Cside"
     },
-    "engines": [
-        "node >=0.1.96",
-        "spidermonkey",
-        "rhino",
-        "phantomjs"
-    ],
-    "devDependencies": {
-        "phantomjs-prebuilt": "^2.1.7",
-        "minimist": "~1.1.0",
-        "semver": "~4.3.3",
-        "tap-consumer": "git://github.com/twada/tap-consumer.git#fix-super"
+    {
+      "name": "gyles19",
+      "url": "https://github.com/gyles19"
     },
-    "licenses": [
-        {
-            "type": "MIT",
-            "url": "https://raw.github.com/twada/qunit-tap/master/MIT-LICENSE.txt"
-        },
-        {
-            "type": "GPL",
-            "url": "https://raw.github.com/twada/qunit-tap/master/GPL-LICENSE.txt"
-        }
-    ],
-    "bugs": {
-        "url" : "https://github.com/twada/qunit-tap/issues"
+    {
+      "name": "Alexander Mackay-Austin",
+      "url": "https://github.com/am-a"
     }
+  ],
+  "devDependencies": {
+    "minimist": "~1.1.0",
+    "phantomjs-prebuilt": "^2.1.7",
+    "semver": "~4.3.3",
+    "tap-consumer": "git://github.com/twada/tap-consumer.git#fix-super"
+  },
+  "directories": {
+    "lib": "./lib",
+    "example": "./sample"
+  },
+  "engines": [
+    "node >=0.1.96",
+    "spidermonkey",
+    "rhino",
+    "phantomjs"
+  ],
+  "files": [
+    "GPL-LICENSE.txt",
+    "MIT-LICENSE.txt",
+    "README.md",
+    "lib",
+    "package.json",
+    "sample"
+  ],
+  "homepage": "https://github.com/twada/qunit-tap",
+  "keywords": [
+    "QUnit",
+    "TAP",
+    "TDD",
+    "test",
+    "testing",
+    "tests"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/twada/qunit-tap/master/MIT-LICENSE.txt"
+    },
+    {
+      "type": "GPL",
+      "url": "https://raw.github.com/twada/qunit-tap/master/GPL-LICENSE.txt"
+    }
+  ],
+  "main": "./lib/qunit-tap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twada/qunit-tap.git"
+  },
+  "scripts": {
+    "test": "npm run test-node && npm run test-phantomjs",
+    "test-node": "node test/runner.js --suite=node",
+    "test-phantomjs": "node test/runner.js --suite=phantomjs",
+    "test-rhino": "node test/runner.js --suite=rhino"
+  }
 }
