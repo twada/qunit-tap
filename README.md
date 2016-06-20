@@ -109,8 +109,8 @@ First, declare qunitjs and qunit-tap as devDependencies in your package.json, th
 {
     . . .
     "devDependencies": {
-        "qunitjs": "1.18.0",
-        "qunit-tap": "1.5.0",
+        "qunitjs": "2.0.0",
+        "qunit-tap": "1.5.1",
         . . .
     },
     . . .
@@ -120,10 +120,9 @@ First, declare qunitjs and qunit-tap as devDependencies in your package.json, th
 Next, require and configure them.
 
 ```javascript
-var util = require("util"),
-    QUnit = require('qunitjs'),
-    qunitTap = require('qunit-tap');
-qunitTap(QUnit, util.puts);
+var QUnit = require('qunitjs');
+var qunitTap = require('qunit-tap');
+qunitTap(QUnit, function() { console.log.apply(console, arguments); });
 QUnit.config.autorun = false;
 
 // your tests
