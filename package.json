@@ -69,16 +69,7 @@
     "testing",
     "tests"
   ],
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://raw.github.com/twada/qunit-tap/master/MIT-LICENSE.txt"
-    },
-    {
-      "type": "GPL",
-      "url": "https://raw.github.com/twada/qunit-tap/master/GPL-LICENSE.txt"
-    }
-  ],
+  "license": "(MIT OR GPL-2.0)",
   "main": "./lib/qunit-tap",
   "repository": {
     "type": "git",
