@@ -32,7 +32,9 @@ q.test('deepEqual', function (assert) {
     assert.deepEqual({foo: 'hoge', bar: 'piyo'}, {foo: 'fuga', baz: 'piyo'}, 'deepEqual({foo: "hoge", bar: "piyo"}, {foo: "fuga", baz: "piyo"})');
 });
 
-q.test('ok', 7, function (assert) {
+q.test('ok', function (assert) {
+    assert.expect(7);
+
     assert.ok(null, 'ok(null)');
     assert.ok(undefined, 'ok(undefined)');
     assert.ok(1, 'ok(1)');

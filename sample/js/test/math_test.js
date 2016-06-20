@@ -1,6 +1,6 @@
-module('math module');
+QUnit.module('math module');
 
-test('add', function (assert) {
+QUnit.test('add', function (assert) {
     var add = math.add;
     assert.equal(add(1, 4), 5);
     assert.equal(add(-3, 2), -1);
