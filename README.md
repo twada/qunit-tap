@@ -19,6 +19,7 @@ QUnit-TAP runs under headless browsers like [PhantomJS](http://phantomjs.org/), 
 
 CHANGELOG
 ---------------------------------------
+* (2016/06/20) Release 1.5.1: Supports QUnit 2.0.0 and above.
 * (2014/12/10) Release 1.5.0: Now supports QUnit 1.15.0 and above. Drops support for too old QUnit versions (before-1.0.0).
 * (2013/08/08) Release 1.4.0: Now QUnit-TAP exports single `qunitTap` function as `module.exports`. Therefore, `require("qunit-tap")` returns `qunitTap` function itself. Please fix your code if you are using Node.js (or any CommonJS env). Provide tap#unsubscribe method to unsubscribe specified logging events.
 * (2013/01/10) Release 1.3.0: Deprecate `noPlan` option: Now QUnit-TAP works as with `noPlan: true` by default. If you want to delare plan explicitly, please use `QUnit.config.requireExpects` option instead. Stop using `QUnit.tap` as namespace: `qunitTap` function now returns an object that represents QUnit-TAP API and customization subject.
