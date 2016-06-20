@@ -57,8 +57,7 @@
     "MIT-LICENSE.txt",
     "README.md",
     "lib",
-    "package.json",
-    "sample"
+    "package.json"
   ],
   "homepage": "https://github.com/twada/qunit-tap",
   "keywords": [
