@@ -14,7 +14,8 @@ fi
 NUM=1
 for version in $TEST_SUITES
 do
-    if [[ $version =~ ^1.[0-6].*$ ]]; then 
+    echo $version | grep -sq '^1\.[0-6]\.0$'
+    if [ "$?" -eq 0 ]; then 
         SUITE_FILE_NAME=test_old_versions.html
     else
         SUITE_FILE_NAME=test_compat.html
