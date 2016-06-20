@@ -65,6 +65,7 @@
         "phantomjs"
     ],
     "devDependencies": {
+        "phantomjs-prebuilt": "^2.1.7",
         "minimist": "~1.1.0",
         "semver": "~4.3.3",
         "tap-consumer": "git://github.com/twada/tap-consumer.git#fix-super"
