@@ -63,6 +63,7 @@ TESTED ENVIRONMENTS
 | 1.23.0        | OK        | OK      | NG    |
 | 1.23.1        | OK        | OK      | NG    |
 | 2.0.0         | OK        | OK      | NG    |
+| 2.0.1         | OK        | OK      | NG    |
 
 
 DOWNLOAD
