@@ -1,7 +1,9 @@
 {
     "name": "qunit-tap",
+    "description": "A TAP Output Producer Plugin for QUnit",
     "version": "1.5.1",
     "main": "lib/qunit-tap.js",
+    "license": "(MIT OR GPL-2.0)",
     "ignore": [
         "**/.*",
         "package.json",
@@ -13,5 +15,49 @@
     ],
     "devDependencies": {
         "qunit": "1.16.0"
+    },
+    "keywords": [
+        "QUnit",
+        "TAP",
+        "TDD",
+        "test",
+        "testing",
+        "tests"
+    ],
+    "authors": [
+        {
+            "name": "Takuto Wada",
+            "email": "takuto.wada@gmail.com",
+            "url": "https://github.com/twada"
+        },
+        {
+            "name": "Nikita Vasilyev",
+            "url": "http://elv1s.ru/"
+        },
+        {
+            "name": "Hiroki Kondo",
+            "url": "https://github.com/kompiro"
+        },
+        {
+            "name": "Keiji Yoshimi",
+            "url": "https://github.com/walf443"
+        },
+        {
+            "name": "Hiroki Honda",
+            "url": "https://github.com/Cside"
+        },
+        {
+            "name": "gyles19",
+            "url": "https://github.com/gyles19"
+        },
+        {
+            "name": "Alexander Mackay-Austin",
+            "url": "https://github.com/am-a"
+        }
+    ],
+    "homepage": "https://github.com/twada/qunit-tap",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/twada/qunit-tap.git"
     }
 }
