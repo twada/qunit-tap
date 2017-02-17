@@ -360,7 +360,7 @@ CONTRIBUTORS
 
 LICENSE
 ---------------------------------------
-Dual licensed under the [MIT](https://raw.github.com/twada/qunit-tap/master/MIT-LICENSE.txt) and [GPLv2](https://raw.github.com/twada/qunit-tap/master/GPL-LICENSE.txt) licenses.
+Dual licensed under the [MIT](https://github.com/twada/qunit-tap/blob/master/MIT-LICENSE.txt) and [GPLv2](https://github.com/twada/qunit-tap/blob/master/GPL-LICENSE.txt) licenses.
 
 
 [npm-url]: https://npmjs.org/package/qunit-tap
