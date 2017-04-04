@@ -66,6 +66,9 @@ TESTED ENVIRONMENTS
 | 2.0.1         | OK        | OK      | NG    |
 | 2.1.0         | OK        | OK      | NG    |
 | 2.1.1         | OK        | OK      | NG    |
+| 2.2.0         | OK        | OK      | NG    |
+| 2.2.1         | OK        | OK      | NG    |
+| 2.3.0         | OK        | OK      | NG    |
 
 
 DOWNLOAD
@@ -113,7 +116,7 @@ First, declare qunitjs and qunit-tap as devDependencies in your package.json, th
 {
     . . .
     "devDependencies": {
-        "qunitjs": "2.0.0",
+        "qunitjs": "2.3.0",
         "qunit-tap": "1.5.1",
         . . .
     },
